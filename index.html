@@ -1,0 +1,1228 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Porto Seguro</title>
+<meta name="description" content="Apoio para momentos de crise: respirar, pedir ajuda, caixa de esperança e plano de segurança.">
+<meta name="theme-color" content="#F4EDE1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1C1A21" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Porto Seguro">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@500&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..600,100;1,9..144,400..600,100&display=swap" rel="stylesheet">
+</head>
+<body>
+<style>
+/* Caderno de bordo: coluna única de celular, papel creme de dia e luz de abajur à noite.
+   Pouca moldura, muito respiro; cada ferramenta é uma tela (rota por #hash). */
+:root{
+  --bg:#F4EDE1; --paper:#FBF7F0; --paper-2:#EFE6D8; --ink:#3B3330; --muted:#6B6159; --line:#E3D7C5;
+  --amber:#E3A256; --on-amber:#2E1D0E; --amber-ink:#8A5519;
+  --calm:#6E9C86; --on-calm:#10241B; --calm-ink:#3F6F59;
+  --sea:#6F8FA8; --sea-ink:#46647C;
+  --help:#B9503D; --on-help:#FFF8F2; --help-ink:#A8452F;
+  --photo:#FFFDF8; --shadow:rgba(74,52,30,.12); --shadow-2:rgba(74,52,30,.07);
+  --rule:rgba(111,143,168,.22); --margin:rgba(185,80,61,.25);
+  --grain-op:.06; --grain-blend:multiply; --scrim:rgba(28,22,18,.82);
+  --display:'Fraunces', Georgia, 'Times New Roman', serif;
+  --body:'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --hand:'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
+  --r:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1C1A21; --paper:#26232B; --paper-2:#312D37; --ink:#EFE6D8; --muted:#B3A99C; --line:#3B3641;
+    --amber:#F0B56A; --on-amber:#2B1C05; --amber-ink:#F0B56A;
+    --calm:#8FC2A8; --on-calm:#0D2419; --calm-ink:#8FC2A8;
+    --sea:#8FB0CC; --sea-ink:#8FB0CC;
+    --help:#FF9A85; --on-help:#2A0F0A; --help-ink:#FF9A85;
+    --photo:#EDE6DA; --shadow:rgba(0,0,0,.38); --shadow-2:rgba(0,0,0,.22);
+    --rule:rgba(143,176,204,.13); --margin:rgba(255,154,133,.22);
+    --grain-op:.05; --grain-blend:soft-light; --scrim:rgba(8,6,10,.86);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1C1A21; --paper:#26232B; --paper-2:#312D37; --ink:#EFE6D8; --muted:#B3A99C; --line:#3B3641;
+  --amber:#F0B56A; --on-amber:#2B1C05; --amber-ink:#F0B56A;
+  --calm:#8FC2A8; --on-calm:#0D2419; --calm-ink:#8FC2A8;
+  --sea:#8FB0CC; --sea-ink:#8FB0CC;
+  --help:#FF9A85; --on-help:#2A0F0A; --help-ink:#FF9A85;
+  --photo:#EDE6DA; --shadow:rgba(0,0,0,.38); --shadow-2:rgba(0,0,0,.22);
+  --rule:rgba(143,176,204,.13); --margin:rgba(255,154,133,.22);
+  --grain-op:.05; --grain-blend:soft-light; --scrim:rgba(8,6,10,.86);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:30;opacity:var(--grain-op);mix-blend-mode:var(--grain-blend);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.3  0 0 0 0 0.24  0 0 0 0 0.18  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:10px}
+a{color:var(--amber-ink)}
+.app{max-width:480px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* barra */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;align-items:center;gap:8px;padding-block:10px;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(6px)}
+.icon-btn,.back{border:0;background:transparent;border-radius:999px;width:44px;height:44px;cursor:pointer;flex:none;display:grid;place-items:center;color:var(--ink)}
+.icon-btn:hover,.back:hover{background:var(--paper-2)}
+.icon-btn svg,.back svg{width:22px;height:22px}
+.back{display:none}
+.app:not([data-view="inicio"]) .back{display:grid}
+.brand{display:flex;align-items:center;gap:8px;flex:1;min-width:0;font-family:var(--display);font-variation-settings:"SOFT" 100;font-weight:600;font-size:19px}
+.brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand .mark{width:24px;height:24px;flex:none;color:var(--amber-ink)}
+.app:not([data-view="inicio"]) .brand .mark{display:none}
+.sos{border:0;background:var(--help);color:var(--on-help);font-weight:700;border-radius:999px;min-height:44px;padding:0 16px;cursor:pointer;flex:none;font-size:15px}
+.sos[aria-current="page"]{background:transparent;color:var(--help-ink);box-shadow:inset 0 0 0 2px var(--help);cursor:default}
+
+main{flex:1;padding-block:12px 40px}
+.view{display:none;flex-direction:column;gap:28px}
+.view.on{display:flex;animation:enter .24s ease-out}
+@keyframes enter{from{opacity:0;transform:translateY(8px)}}
+h1{font-family:var(--display);font-variation-settings:"SOFT" 100;font-weight:500;font-size:30px;line-height:1.18;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1 em,h2 em{font-style:italic;color:var(--amber-ink)}
+h2{font-family:var(--display);font-variation-settings:"SOFT" 100;font-weight:500;font-size:22px;line-height:1.25;margin:0;text-wrap:balance}
+p{margin:0}
+.intro{display:flex;flex-direction:column;gap:10px}
+.greet{font-family:var(--display);font-style:italic;font-size:18px;color:var(--muted)}
+.muted{color:var(--muted)}
+.small{font-size:15px}
+.center{text-align:center}
+.kicker{font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-family:var(--body)}
+.card{background:var(--paper);border-radius:var(--r);padding:20px 18px;display:flex;flex-direction:column;gap:14px;box-shadow:0 1px 2px var(--shadow-2),0 10px 28px var(--shadow-2)}
+.sec{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row > .btn{flex:1 1 140px}
+.spread{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+
+/* botões */
+.btn{border:0;border-radius:14px;min-height:50px;padding:12px 18px;font-weight:700;cursor:pointer;background:var(--amber);color:var(--on-amber);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-align:center;box-shadow:0 2px 0 color-mix(in srgb,var(--amber) 55%,var(--ink));transition:transform .12s,box-shadow .12s}
+.btn:active{transform:translateY(2px);box-shadow:0 0 0 transparent}
+.btn.soft{background:var(--paper-2);color:var(--ink);font-weight:700;box-shadow:none}
+.btn.calm{background:var(--calm);color:var(--on-calm);box-shadow:0 2px 0 color-mix(in srgb,var(--calm) 55%,var(--ink))}
+.btn.help{background:var(--help);color:var(--on-help);box-shadow:0 2px 0 color-mix(in srgb,var(--help) 55%,var(--ink))}
+.btn:disabled{opacity:.38;cursor:not-allowed;box-shadow:none;transform:none}
+.x{border:0;background:transparent;color:var(--muted);width:44px;height:44px;border-radius:12px;cursor:pointer;flex:none;font-size:24px;line-height:1;display:grid;place-items:center}
+.x:hover{background:var(--paper-2);color:var(--ink)}
+
+/* início */
+.level{font-size:15px;color:var(--muted);min-height:1.5em}
+.level b{font-family:var(--display);font-size:24px;color:var(--ink);font-variant-numeric:tabular-nums;margin-right:6px}
+.label-q{font-weight:700;font-size:18px}
+.scale{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.scale button{border:0;background:var(--paper-2);border-radius:12px;min-height:48px;padding:0;cursor:pointer;font-variant-numeric:tabular-nums;font-size:18px;font-weight:700;transition:transform .12s,background .15s}
+.scale button:active{transform:scale(.95)}
+.scale button[aria-pressed="true"]{background:var(--amber);color:var(--on-amber)}
+.scale-ends{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+.note-last{font-family:var(--display);font-style:italic;font-size:16px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px}
+.urgent{background:color-mix(in srgb,var(--help) 13%,var(--paper));border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:10px}
+.urgent b{font-size:19px}
+.tiles{padding:6px 0;gap:0}
+.tile{display:flex;align-items:center;gap:14px;width:100%;text-align:left;border:0;background:transparent;padding:14px 18px;cursor:pointer;min-height:72px;transition:background .15s}
+.tile + .tile{border-top:1px solid var(--line)}
+.tile:active{background:var(--paper-2)}
+.tile .ic{width:44px;height:44px;border-radius:50%;flex:none;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 18%,transparent);color:var(--ci)}
+.tile .ic svg{width:24px;height:24px}
+.tile .tt{flex:1;min-width:0}
+.tile b{display:block;font-size:18px}
+.tile .tt span{display:block;color:var(--muted);font-size:15px;line-height:1.35}
+.tile .chev{width:18px;height:18px;color:var(--muted);flex:none}
+.waves{width:100%;height:28px;color:var(--sea);opacity:.55;display:block}
+
+/* ajuda */
+.call{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);background:var(--paper);border-radius:var(--r);padding:16px 18px;box-shadow:0 1px 2px var(--shadow-2),0 8px 22px var(--shadow-2);flex-wrap:wrap}
+.call .who{flex:1;min-width:0}
+.call b{font-size:19px;display:block}
+.call .who span{color:var(--muted);font-size:15px}
+.call .num{font-family:var(--display);font-size:34px;line-height:1;color:var(--help-ink);font-variant-numeric:tabular-nums;user-select:all}
+.call .ligar{display:inline-flex;align-items:center;gap:6px;background:var(--help);color:var(--on-help);border-radius:999px;padding:8px 14px;font-weight:700;font-size:15px;min-height:40px}
+.call .ligar svg{width:18px;height:18px}
+.call.main{padding:22px 20px;background:color-mix(in srgb,var(--help) 10%,var(--paper))}
+.call.main .num{font-size:56px}
+.call.main .ligar{width:100%;justify-content:center;min-height:48px;font-size:17px}
+.person{display:flex;align-items:center;gap:12px;padding:12px 0;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line)}
+.person .ini{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--calm) 22%,transparent);color:var(--calm-ink);font-family:var(--display);font-size:20px;flex:none}
+.person .who{flex:1;min-width:0}
+.person .who b{display:block}
+.person .who span{color:var(--muted);font-size:15px;user-select:all;font-variant-numeric:tabular-nums}
+.person .go{color:var(--help-ink);font-weight:700;font-size:15px}
+.linkrow{display:flex;align-items:center;gap:12px;padding:14px 0;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line);min-height:56px}
+.linkrow .who{flex:1;min-width:0}
+.linkrow .who b{display:block}
+.linkrow .who span{color:var(--muted);font-size:15px}
+.linkrow .dom{color:var(--sea-ink);font-weight:700;font-size:15px}
+.empty{color:var(--muted);font-style:italic}
+
+/* respirar */
+.breath-card{align-items:center;text-align:center}
+.stage{height:250px;width:100%;display:grid;place-items:center}
+.orb{width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle at 38% 34%,color-mix(in srgb,var(--calm) 55%,var(--paper)),var(--calm) 62%);
+  box-shadow:0 0 0 16px color-mix(in srgb,var(--calm) 16%,transparent),0 0 0 34px color-mix(in srgb,var(--calm) 8%,transparent);
+  transform:scale(.6);transition:transform 4s cubic-bezier(.45,0,.4,1)}
+.breath-read{min-height:80px;display:flex;flex-direction:column;gap:2px}
+#orb-say{font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:28px}
+.count{font-size:20px;color:var(--muted);font-variant-numeric:tabular-nums;min-height:1.5em}
+.phases{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.phases span{font-size:14px;padding:6px 12px;border-radius:999px;background:var(--paper-2);color:var(--muted);font-variant-numeric:tabular-nums;transition:background .3s,color .3s}
+.phases span.on{background:var(--calm);color:var(--on-calm);font-weight:700}
+.breath-card .btn{width:100%}
+.dots{display:flex;gap:8px;justify-content:center}
+.dots i{width:9px;height:9px;border-radius:50%;background:var(--line);transition:background .2s,transform .2s}
+.dots i.on{background:var(--calm);transform:scale(1.25)}
+.steps54321{font-size:20px;line-height:1.45;min-height:120px}
+.steps54321 big{font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:64px;color:var(--calm-ink);display:block;line-height:1;margin-bottom:6px}
+
+/* vozes */
+.vsteps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.vsteps li{display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--muted);line-height:1.25}
+.vsteps li::before{content:attr(data-n);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--paper-2);font-weight:700;color:var(--muted)}
+.vsteps li.cur{color:var(--ink);font-weight:700}
+.vsteps li.cur::before{background:var(--amber);color:var(--on-amber)}
+.vsteps li.done::before{content:"✓";background:var(--calm);color:var(--on-calm)}
+.tabs{display:flex;gap:4px;background:var(--paper-2);border-radius:14px;padding:4px}
+.tabs button{flex:1;border:0;background:transparent;border-radius:11px;min-height:44px;cursor:pointer;font-size:15px;font-weight:700;color:var(--muted);padding:6px 4px;line-height:1.2}
+.tabs button[aria-selected="true"],.tabs button[aria-pressed="true"]{background:var(--paper);color:var(--ink);box-shadow:0 1px 3px var(--shadow)}
+.tabpanel{display:flex;flex-direction:column;gap:14px}
+.word{font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:38px;text-align:center;min-height:56px;line-height:1.3}
+.slots{display:flex;justify-content:center;gap:6px;flex-wrap:wrap}
+.slot{width:34px;height:46px;border-bottom:3px solid var(--line);display:grid;place-items:center;font-size:24px;font-weight:700;text-transform:uppercase;transition:color .2s,border-color .2s}
+.slot.filled{border-color:var(--calm);color:var(--calm-ink)}
+.letters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.letter{width:54px;height:56px;border-radius:10px;border:0;background:var(--paper-2);font-size:24px;font-weight:700;text-transform:uppercase;cursor:pointer;box-shadow:0 3px 0 var(--line),0 4px 10px var(--shadow-2)}
+.letter:active{transform:translateY(2px);box-shadow:0 1px 0 var(--line)}
+.letter.used{visibility:hidden}
+.letter.nope{animation:nudge .25s}
+@keyframes nudge{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.counter{font-variant-numeric:tabular-nums;color:var(--calm-ink);font-weight:700;font-size:15px}
+.bilhete{background:var(--paper-2);border-radius:4px 4px 18px 4px;padding:20px 18px;transform:rotate(-.6deg);box-shadow:0 6px 16px var(--shadow-2)}
+.phrase{font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:23px;line-height:1.35;min-height:94px;text-wrap:balance}
+details{border-top:1px dashed var(--line);padding-top:12px}
+summary{cursor:pointer;font-weight:700;min-height:44px;display:flex;align-items:center;gap:8px;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";width:24px;height:24px;border-radius:50%;background:var(--paper-2);display:grid;place-items:center;font-size:18px;line-height:1}
+details[open] summary::before{content:"–"}
+details > .sec{margin-top:8px}
+.result{display:flex;align-items:center;gap:16px;background:color-mix(in srgb,var(--calm) 15%,var(--paper));border-radius:14px;padding:14px 16px}
+.result .delta{font-family:var(--display);font-size:32px;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--calm-ink)}
+.result p{flex:1;min-width:0;font-size:16px}
+
+/* listas */
+.list{display:flex;flex-direction:column;margin:0;padding:0;list-style:none}
+.list li{display:flex;align-items:center;gap:8px;padding:6px 0 6px 2px;border-bottom:1px solid var(--line);min-height:56px}
+.list li:last-child{border-bottom:0}
+.list li .t{flex:1;min-width:0;overflow-wrap:anywhere}
+.list.hand li .t{font-family:var(--hand);font-size:25px;line-height:1.2}
+.list li.empty{font-style:italic;color:var(--muted);font-size:15px}
+.tag{font-family:var(--body);font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 8px;margin-left:8px;vertical-align:3px;white-space:nowrap}
+.add{display:flex;gap:8px}
+.add input{flex:1;min-width:0}
+.add .btn{flex:none}
+input[type=text],input[type=tel],textarea{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:11px 13px;width:100%;min-height:48px}
+input:focus,textarea:focus{border-color:var(--amber);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--amber) 30%,transparent)}
+textarea{min-height:84px;resize:vertical}
+::placeholder{color:var(--muted);opacity:.85}
+label{font-weight:700;font-size:17px}
+
+/* caixa */
+.slip{background:var(--paper);border-radius:6px 6px 20px 6px;padding:24px 22px;display:flex;flex-direction:column;gap:12px;min-height:160px;box-shadow:0 1px 2px var(--shadow-2),0 14px 30px var(--shadow);position:relative}
+.slip::before{content:"";position:absolute;top:-9px;left:50%;width:76px;height:20px;transform:translateX(-50%) rotate(-2deg);background:color-mix(in srgb,var(--amber) 30%,transparent);border-radius:2px}
+.slip.flip{animation:flip .5s ease-out}
+@keyframes flip{from{opacity:0;transform:perspective(700px) rotateX(-65deg) translateY(-6px)}}
+.slip .k{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.slip .q{font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:25px;line-height:1.3;text-wrap:balance}
+.slip.hand .q{font-family:var(--hand);font-size:32px;line-height:1.15}
+.slip .pic{background:var(--photo);padding:8px 8px 26px;border-radius:3px;box-shadow:0 4px 14px var(--shadow);transform:rotate(-1.2deg);align-self:center;max-width:100%}
+.slip .pic img{display:block;max-width:100%;max-height:300px;object-fit:cover}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:4px 2px}
+.photo{border:0;cursor:pointer;background:var(--photo);padding:5px 5px 18px;border-radius:3px;box-shadow:0 3px 10px var(--shadow);max-width:100%}
+.photo:nth-child(odd){transform:rotate(-1.5deg)}
+.photo:nth-child(even){transform:rotate(1.2deg)}
+.photo img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.photo.addph{background:transparent;box-shadow:none;transform:none;border:2px dashed var(--line);color:var(--muted);font-size:15px;font-weight:700;aspect-ratio:1/1.12;display:grid;place-items:center;padding:6px;border-radius:10px}
+
+/* plano */
+.seg{display:flex;gap:4px;background:var(--paper-2);border-radius:14px;padding:4px}
+.seg button{flex:1;border:0;background:transparent;border-radius:11px;min-height:46px;cursor:pointer;font-weight:700;color:var(--muted)}
+.prog{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--muted);flex-wrap:wrap}
+.prog-bar{flex:1 1 120px;height:6px;border-radius:99px;background:var(--paper-2);overflow:hidden}
+.prog-bar i{display:block;height:100%;width:0;background:var(--calm);border-radius:99px;transition:width .3s}
+.saved{color:var(--calm-ink);font-weight:700;opacity:0;transition:opacity .2s}
+.saved.on{opacity:1}
+.readcard{min-height:240px;gap:12px}
+.readcard.swap{animation:enter .25s ease-out}
+.readcard .eyebrow{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--amber-ink)}
+.readcard h2{font-size:26px}
+.rtext{font-size:21px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.notebook{position:relative;background:var(--paper);border-radius:var(--r);padding:22px 16px 22px 0;display:flex;flex-direction:column;gap:26px;box-shadow:0 1px 2px var(--shadow-2),0 10px 28px var(--shadow-2)}
+.notebook::before{content:"";position:absolute;top:0;bottom:0;left:54px;width:2px;background:var(--margin)}
+.pstep{display:flex;gap:16px}
+.pstep .n{flex:none;width:54px;display:flex;justify-content:center;font-family:var(--display);font-size:26px;line-height:1.2;color:var(--amber-ink);font-variant-numeric:tabular-nums}
+.pstep .body{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.notebook textarea{background-color:transparent;background-image:linear-gradient(transparent calc(1.7em - 1px),var(--rule) 0);background-size:100% 1.7em;background-attachment:local;line-height:1.7em;padding:4px 10px;border-radius:8px}
+.contact{display:grid;grid-template-columns:1fr auto;gap:6px;align-items:start}
+.cfields{display:grid;grid-template-columns:1fr;gap:6px}
+@media (min-width:430px){.cfields{grid-template-columns:1fr 1fr}}
+#plan-text{min-height:160px;font-size:14px}
+
+/* distrair */
+.bubbles{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:14px;border-radius:14px;background:color-mix(in srgb,var(--sea) 8%,var(--paper-2))}
+.bubble{aspect-ratio:1;max-width:100%;min-width:0;border-radius:50%;border:0;padding:0;cursor:pointer;
+  background:radial-gradient(circle at 34% 30%,rgba(255,255,255,.9) 0 9%,rgba(255,255,255,.3) 22%,transparent 55%),color-mix(in srgb,var(--sea) 16%,transparent);
+  box-shadow:inset 0 -3px 6px color-mix(in srgb,var(--sea) 28%,transparent),0 2px 3px var(--shadow-2);transition:transform .12s,background .2s,box-shadow .2s}
+.bubble:active{transform:scale(.9)}
+.bubble.pop{cursor:default;transform:scale(.84);border-radius:46% 54% 50% 47%;background:color-mix(in srgb,var(--sea) 7%,transparent);box-shadow:inset 0 1px 2px var(--shadow)}
+.idea{font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:23px;line-height:1.35;min-height:94px}
+.idea.swap{animation:enter .3s ease-out}
+
+.foot{padding-block:0 28px;color:var(--muted);font-size:14px;text-align:center}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,8px);background:var(--ink);color:var(--bg);padding:8px 8px 8px 18px;border-radius:999px;font-size:15px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:40;display:flex;align-items:center;gap:6px;max-width:calc(100% - 32px);min-height:44px}
+.toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.toast button{border:0;background:transparent;color:inherit;font-weight:700;text-decoration:underline;min-height:40px;padding:0 12px;border-radius:999px;cursor:pointer}
+.toast span{padding-right:10px}
+.viewer{position:fixed;inset:0;background:var(--scrim);display:none;place-items:center;z-index:35;padding:16px}
+.viewer.on{display:grid}
+.viewer .frame{background:var(--photo);padding:10px 10px 14px;border-radius:4px;max-width:100%}
+.viewer img{display:block;max-width:100%;max-height:70vh}
+.viewer .row{margin-top:12px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01s!important}
+}
+</style>
+
+<div class="app" id="app" data-view="inicio">
+  <header class="bar">
+    <button class="back" id="back" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <div class="brand"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 9.5h4l1.2 10.5H8.8z"/><path d="M9.6 9.5V6.8h4.8v2.7"/><path d="M12 4.2v2.6"/><path d="M3.5 5.5l4.2 1.8M20.5 5.5l-4.2 1.8"/><path d="M9.4 14.5h5.2"/><path d="M5 20h14"/></svg><span id="brand">Porto Seguro</span></div>
+    <button class="icon-btn" id="theme" aria-label="Usar tema escuro"></button>
+    <button class="sos" id="sos">Ajuda agora</button>
+  </header>
+
+  <main>
+    <!-- INÍCIO -->
+    <section class="view" id="v-inicio" aria-labelledby="h-inicio">
+      <header class="intro">
+        <p class="greet" id="greet">Olá.</p>
+        <h1 id="h-inicio">Você abriu isto. Isso já é <em>um passo</em>.</h1>
+        <p class="muted">Escolha uma coisa só. Não precisa resolver tudo agora.</p>
+      </header>
+
+      <div class="card">
+        <div class="spread"><p class="label-q" id="q-home">Quanto está difícil agora?</p></div>
+        <div class="scale" id="scale-home" role="group" aria-labelledby="q-home"></div>
+        <div class="scale-ends"><span>0 tranquilo</span><span>10 insuportável</span></div>
+        <p class="level" id="home-level" aria-live="polite"></p>
+        <p class="small muted" id="home-hint">Toque num número. Ele fica guardado para você comparar depois.</p>
+        <p class="note-last" id="home-last" hidden></p>
+      </div>
+
+      <div class="urgent" id="home-urgent" hidden>
+        <b>Quer falar com alguém agora?</b>
+        <p class="small">O CVV atende 24 horas, de graça e em sigilo. Se você corre risco de se machucar, ligue 192.</p>
+        <div class="row"><a class="btn help" href="tel:188">Ligar para o CVV (188)</a><button class="btn soft" data-go="ajuda">Ver outras opções</button></div>
+      </div>
+
+      <nav class="tiles card" aria-label="Ferramentas">
+        <button class="tile" data-go="respirar" style="--c:var(--calm);--ci:var(--calm-ink)">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3.5"/><circle cx="12" cy="12" r="8" opacity=".55"/></svg></span>
+          <span class="tt"><b>Respirar</b><span>Respiração guiada e o exercício 5-4-3-2-1</span></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <button class="tile" data-go="vozes" style="--c:var(--sea);--ci:var(--sea-ink)">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 10v4M8 7v10M12 4v16M16 8v8M20 11v2"/></svg></span>
+          <span class="tt"><b>Estou ouvindo vozes</b><span>Jogo de palavras e frases para responder</span></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <button class="tile" data-go="caixa" style="--c:var(--amber);--ci:var(--amber-ink)">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16v9H4z"/><path d="M3 6.5h18V10H3z"/><path d="M10 13.5h4"/></svg></span>
+          <span class="tt"><b>Minha caixa de esperança</b><span>Fotos, motivos para viver e recados</span></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <button class="tile" data-go="plano" style="--c:var(--amber);--ci:var(--amber-ink)">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h11a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6z"/><path d="M9 3.5v17"/><path d="M12 9h3M12 13h3"/></svg></span>
+          <span class="tt"><b>Meu plano de segurança</b><span>Os passos que eu combinei comigo</span></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <button class="tile" data-go="distrair" style="--c:var(--sea);--ci:var(--sea-ink)">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8" cy="9" r="3.5"/><circle cx="16" cy="15" r="4.5"/><circle cx="17" cy="6" r="2"/></svg></span>
+          <span class="tt"><b>Distrair a cabeça</b><span>Plástico-bolha e ideias rápidas</span></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </nav>
+
+      <svg class="waves" viewBox="0 0 400 28" preserveAspectRatio="none" aria-hidden="true"><path d="M0 14 Q 25 4 50 14 T 100 14 T 150 14 T 200 14 T 250 14 T 300 14 T 350 14 T 400 14" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M0 22 Q 25 14 50 22 T 100 22 T 150 22 T 200 22 T 250 22 T 300 22 T 350 22 T 400 22" fill="none" stroke="currentColor" stroke-width="1" opacity=".5"/></svg>
+    </section>
+
+    <!-- AJUDA AGORA -->
+    <section class="view" id="v-ajuda" aria-labelledby="h-ajuda">
+      <header class="intro">
+        <h1 id="h-ajuda">Fale com alguém agora</h1>
+        <p class="muted">Se você corre risco de se machucar, ligue 192 ou vá ao pronto-socorro mais próximo.</p>
+      </header>
+      <div class="sec">
+        <a class="call main" href="tel:188">
+          <span class="who"><b>CVV</b><span>Apoio emocional, 24 horas, gratuito e sigiloso</span></span>
+          <span class="num">188</span>
+          <span class="ligar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Ligar</span>
+        </a>
+        <a class="call" href="tel:192">
+          <span class="who"><b>SAMU</b><span>Emergência médica</span></span>
+          <span class="num">192</span>
+          <span class="ligar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Ligar</span>
+        </a>
+        <p class="small muted">Se o botão não ligar sozinho, digite o número que aparece em destaque.</p>
+      </div>
+      <div class="sec">
+        <p class="kicker">Pessoas do meu plano</p>
+        <div id="my-contacts"></div>
+      </div>
+      <div class="sec">
+        <p class="kicker">Se for difícil falar em voz alta</p>
+        <div>
+          <a class="linkrow" href="https://cvv.org.br" target="_blank" rel="noopener"><span class="who"><b>Chat do CVV</b><span>Converse por escrito</span></span><span class="dom">cvv.org.br ↗</span></a>
+          <a class="linkrow" href="https://www.podefalar.org.br" target="_blank" rel="noopener"><span class="who"><b>Pode Falar</b><span>13 a 24 anos · seg. a sáb., 8h às 22h</span></span><span class="dom">podefalar.org.br ↗</span></a>
+        </div>
+      </div>
+      <button class="btn soft" data-go="plano">Abrir meu plano de segurança</button>
+    </section>
+
+    <!-- RESPIRAR -->
+    <section class="view" id="v-respirar" aria-labelledby="h-respirar">
+      <header class="intro">
+        <h1 id="h-respirar">Respire <em>comigo</em></h1>
+        <p class="muted">Inspire enquanto o círculo cresce. Solte o ar devagar quando ele diminuir. Soltar mais devagar do que puxar ajuda o corpo a desacelerar.</p>
+      </header>
+      <div class="card breath-card">
+        <div class="stage" aria-hidden="true"><div class="orb" id="orb"></div></div>
+        <div class="breath-read" aria-live="polite"><p id="orb-say">Pronto?</p><p class="count" id="orb-num"></p></div>
+        <div class="phases" id="phases" aria-hidden="true"><span>Inspire 4</span><span>Segure 2</span><span>Solte 6</span></div>
+        <button class="btn calm" id="breath-toggle">Começar</button>
+        <p class="small muted" id="breath-count" aria-live="polite">Seis ciclos levam pouco mais de um minuto.</p>
+      </div>
+
+      <div class="card">
+        <h2>Voltar para o agora: 5-4-3-2-1</h2>
+        <div class="dots" id="g-dots" aria-hidden="true"></div>
+        <div class="steps54321" id="g-step" aria-live="polite"></div>
+        <div class="row"><button class="btn soft" id="g-prev">Anterior</button><button class="btn" id="g-next">Próximo</button></div>
+      </div>
+    </section>
+
+    <!-- VOZES -->
+    <section class="view" id="v-vozes" aria-labelledby="h-vozes">
+      <header class="intro">
+        <h1 id="h-vozes">As vozes estão aqui. Você continua <em>no controle</em>.</h1>
+        <p class="muted">Falar ou ler palavras em voz alta ocupa a mesma parte do cérebro que as vozes usam. Para muita gente, isso as deixa mais baixas por um tempo.</p>
+      </header>
+
+      <ol class="vsteps" id="vsteps" aria-label="Caminho">
+        <li data-n="1" class="cur" aria-current="step">Como está agora</li>
+        <li data-n="2">Escolha o que fazer</li>
+        <li data-n="3">E agora?</li>
+      </ol>
+
+      <div class="card">
+        <p class="label-q" id="q-before">Quanto a voz está te incomodando?</p>
+        <div class="scale" id="scale-before" role="group" aria-labelledby="q-before"></div>
+        <div class="scale-ends"><span>0 nada</span><span>10 muito</span></div>
+      </div>
+
+      <div class="card">
+        <div class="tabs" id="vtabs" role="tablist" aria-label="O que fazer">
+          <button role="tab" id="t-jogo" aria-controls="tp-jogo" aria-selected="true">Jogo das palavras</button>
+          <button role="tab" id="t-frases" aria-controls="tp-frases" aria-selected="false" tabindex="-1">Frases</button>
+          <button role="tab" id="t-outras" aria-controls="tp-outras" aria-selected="false" tabindex="-1">Outras ideias</button>
+        </div>
+
+        <div class="tabpanel" id="tp-jogo" role="tabpanel" aria-labelledby="t-jogo">
+          <div class="spread"><p class="small muted">Diga a palavra em voz alta, ou sussurre. Depois toque as letras na ordem.</p><span class="counter" id="w-count">0 palavras</span></div>
+          <div class="word" id="w-word" aria-live="polite"></div>
+          <div class="slots" id="w-slots"></div>
+          <div class="letters" id="w-letters"></div>
+          <button class="btn soft" id="w-skip">Outra palavra</button>
+        </div>
+
+        <div class="tabpanel" id="tp-frases" role="tabpanel" aria-labelledby="t-frases" hidden>
+          <div class="bilhete"><p class="phrase" id="ph-text" aria-live="polite"></p></div>
+          <p class="small muted">Leia em voz alta, devagar. Se quiser, repita três vezes.</p>
+          <button class="btn" id="ph-next">Outra frase</button>
+          <details>
+            <summary>Minhas frases</summary>
+            <div class="sec">
+              <ul class="list" id="ph-list"></ul>
+              <div class="add"><input type="text" id="ph-new" placeholder="Escreva uma frase sua" aria-label="Nova frase"><button class="btn soft" id="ph-add">Salvar</button></div>
+            </div>
+          </details>
+        </div>
+
+        <div class="tabpanel" id="tp-outras" role="tabpanel" aria-labelledby="t-outras" hidden>
+          <ul class="list">
+            <li><span class="t">Cantarole uma música que você sabe de cor.</span></li>
+            <li><span class="t">Conte em voz alta de 100 para trás, de 3 em 3.</span></li>
+            <li><span class="t">Coloque fone de ouvido com música ou alguém falando.</span></li>
+            <li><span class="t">Ligue para alguém e converse sobre qualquer assunto.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="label-q" id="q-after">E agora, quanto a voz está te incomodando?</p>
+        <div class="scale" id="scale-after" role="group" aria-labelledby="q-after"></div>
+        <div class="scale-ends"><span>0 nada</span><span>10 muito</span></div>
+        <div class="result" id="v-result" aria-live="polite" hidden><span class="delta" id="v-delta"></span><p id="v-msg"></p></div>
+      </div>
+    </section>
+
+    <!-- CAIXA DE ESPERANÇA -->
+    <section class="view" id="v-caixa" aria-labelledby="h-caixa">
+      <header class="intro">
+        <h1 id="h-caixa">O que eu quero <em>lembrar</em></h1>
+        <p class="muted">Na crise, a cabeça esquece o que é bom. Guarde aqui, nos dias melhores, o que você quer lembrar nos piores.</p>
+      </header>
+
+      <div class="sec">
+        <div class="slip" id="remind" aria-live="polite"></div>
+        <button class="btn" id="remind-btn">Me lembre de algo</button>
+      </div>
+
+      <p class="kicker">Guardar algo novo</p>
+
+      <div class="card">
+        <h2>Fotos</h2>
+        <div class="photos" id="photos"></div>
+        <input type="file" id="ph-file" accept="image/*" multiple hidden>
+        <p class="small muted" id="photo-note">Pessoas, lugares e bichos que te fazem bem.</p>
+      </div>
+
+      <div class="card">
+        <h2>Meus motivos para viver</h2>
+        <ul class="list" id="l-reasons"></ul>
+        <div class="add"><input type="text" id="n-reasons" placeholder="Um motivo, pequeno ou grande" aria-label="Novo motivo"><button class="btn soft" data-add="reasons">Salvar</button></div>
+      </div>
+
+      <div class="card">
+        <h2>Recados de quem gosta de mim</h2>
+        <ul class="list hand" id="l-messages"></ul>
+        <div class="add"><input type="text" id="n-messages" placeholder="Algo que alguém já te disse" aria-label="Novo recado"><button class="btn soft" data-add="messages">Salvar</button></div>
+      </div>
+
+      <div class="card">
+        <h2>Músicas e coisas que me acalmam</h2>
+        <ul class="list" id="l-songs"></ul>
+        <div class="add"><input type="text" id="n-songs" placeholder="Nome da música, filme, lugar…" aria-label="Novo item"><button class="btn soft" data-add="songs">Salvar</button></div>
+      </div>
+    </section>
+
+    <!-- PLANO DE SEGURANÇA -->
+    <section class="view" id="v-plano" aria-labelledby="h-plano">
+      <header class="intro">
+        <h1 id="h-plano">Os passos que <em>combinei</em> comigo</h1>
+        <p class="muted">Siga os passos em ordem. Se um não funcionar, vá para o próximo.</p>
+      </header>
+
+      <div class="seg" role="group" aria-label="Modo do plano">
+        <button id="m-ler" aria-pressed="true">Ler meu plano</button>
+        <button id="m-editar" aria-pressed="false">Editar</button>
+      </div>
+      <div class="prog"><div class="prog-bar" aria-hidden="true"><i id="plan-bar"></i></div><span id="plan-prog"></span><span class="saved" id="plan-saved" aria-live="polite"></span></div>
+
+      <div class="sec" id="plan-read">
+        <div class="card readcard" id="plan-read-card"></div>
+        <div class="dots" id="r-dots" aria-hidden="true"></div>
+        <div class="row" id="r-nav"><button class="btn soft" id="r-prev">Passo anterior</button><button class="btn" id="r-next">Não ajudou? Próximo passo</button></div>
+      </div>
+
+      <div class="sec" id="plan-edit" hidden>
+        <p class="small muted">O ideal é preencher com seu psicólogo ou com alguém de confiança. Tudo se salva sozinho.</p>
+        <div class="notebook" id="plan"></div>
+      </div>
+
+      <div class="row"><button class="btn soft" id="plan-copy">Copiar o plano</button><button class="btn help" data-go="ajuda">Ajuda agora</button></div>
+      <textarea id="plan-text" readonly aria-label="Texto do plano para copiar" hidden></textarea>
+    </section>
+
+    <!-- DISTRAIR -->
+    <section class="view" id="v-distrair" aria-labelledby="h-distrair">
+      <header class="intro">
+        <h1 id="h-distrair">Dar um <em>descanso</em> para a cabeça</h1>
+        <p class="muted">A vontade mais forte costuma passar em alguns minutos. Aqui é só para ganhar esse tempo.</p>
+      </header>
+      <div class="card">
+        <div class="spread"><h2>Plástico-bolha</h2><span class="counter" id="b-count" aria-live="polite">0 estouradas</span></div>
+        <div class="bubbles" id="bubbles"></div>
+        <p class="small muted center" id="b-done" hidden>Estourou a folha inteira. Quer outra?</p>
+        <button class="btn soft" id="b-reset">Folha nova</button>
+      </div>
+      <div class="card">
+        <h2>Uma ideia para agora</h2>
+        <div class="bilhete"><p class="idea" id="idea" aria-live="polite"></p></div>
+        <button class="btn" id="idea-btn">Outra ideia</button>
+      </div>
+    </section>
+  </main>
+
+  <p class="foot">Protótipo. Não substitui atendimento profissional. O que você escreve fica salvo só neste aparelho.</p>
+</div>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Foto">
+  <div><div class="frame"><img id="viewer-img" alt=""></div><div class="row"><button class="btn soft" id="viewer-del">Remover foto</button><button class="btn" id="viewer-close">Fechar</button></div></div>
+</div>
+<div class="toast" id="toast" role="status"><span id="toast-msg"></span><button id="toast-undo" hidden>Desfazer</button></div>
+
+<script>
+(function(){
+  const $ = s => document.querySelector(s);
+  const KEY = 'porto-seguro-v1';
+  const TKEY = 'porto-seguro-tema';
+
+  /* ---------- armazenamento (só neste aparelho) ---------- */
+  const defaults = {
+    rating: null,
+    reasons: [{t:'Ver minha sobrinha crescer', ex:true},{t:'O cheiro de café de manhã', ex:true}],
+    messages: [{t:'"Você é a pessoa mais forte que eu conheço." (Mãe)', ex:true}],
+    songs: [{t:'Uma música que eu sei cantar inteira', ex:true}],
+    phrases: [],
+    plan: {
+      sinais:'', sozinho:'', distrair:'',
+      contatos:[{nome:'', tel:''}],
+      profissionais:'CVV: 188\nSAMU: 192\nCAPS da minha cidade:',
+      ambiente:''
+    }
+  };
+  let store;
+  try { store = Object.assign({}, JSON.parse(JSON.stringify(defaults)), JSON.parse(localStorage.getItem(KEY) || '{}')); }
+  catch(e){ store = JSON.parse(JSON.stringify(defaults)); }
+  store.plan = Object.assign({}, defaults.plan, store.plan || {});
+  if (!Array.isArray(store.plan.contatos) || !store.plan.contatos.length) store.plan.contatos = [{nome:'', tel:''}];
+  let canSave = true;
+  function save(){
+    try { localStorage.setItem(KEY, JSON.stringify(store)); return true; }
+    catch(e){
+      if (canSave){ canSave = false; toast('Este navegador não deixou salvar. O que você escrever some ao fechar.'); }
+      return false;
+    }
+  }
+
+  /* ---------- aviso com desfazer ---------- */
+  let undoFn = null;
+  function toast(msg, undo){
+    $('#toast-msg').textContent = msg;
+    undoFn = undo || null;
+    $('#toast-undo').hidden = !undo;
+    $('#toast').classList.add('on');
+    clearTimeout(toast.h); toast.h = setTimeout(hideToast, undo ? 5000 : 2600);
+  }
+  function hideToast(){ $('#toast').classList.remove('on'); undoFn = null; }
+  $('#toast-undo').onclick = () => { const f = undoFn; hideToast(); if (f){ f(); setTimeout(()=>toast('Desfeito.'), 60); } };
+
+  /* ---------- tema ---------- */
+  const sun = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>';
+  const moon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>';
+  const root = document.documentElement;
+  function isDark(){ const t = root.dataset.theme; return t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; }
+  function paintThemeBtn(){
+    const d = isDark();
+    $('#theme').innerHTML = d ? sun : moon;
+    $('#theme').setAttribute('aria-label', d ? 'Usar tema claro' : 'Usar tema escuro');
+  }
+  try { const t = localStorage.getItem(TKEY); if (t === 'light' || t === 'dark') root.dataset.theme = t; } catch(e){}
+  $('#theme').onclick = () => {
+    const n = isDark() ? 'light' : 'dark'; root.dataset.theme = n;
+    try { localStorage.setItem(TKEY, n); } catch(e){}
+    paintThemeBtn();
+  };
+  try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', paintThemeBtn); } catch(e){}
+  paintThemeBtn();
+
+  /* ---------- rotas ---------- */
+  const titles = {inicio:'Porto Seguro', ajuda:'Ajuda agora', respirar:'Respirar', vozes:'Vozes', caixa:'Caixa de esperança', plano:'Plano de segurança', distrair:'Distrair'};
+  function show(){
+    let v = location.hash.slice(1);
+    if (!titles[v]) v = 'inicio';
+    document.querySelectorAll('.view').forEach(s => s.classList.toggle('on', s.id === 'v-' + v));
+    $('#app').dataset.view = v;
+    $('#brand').textContent = titles[v];
+    if (v === 'ajuda') $('#sos').setAttribute('aria-current','page'); else $('#sos').removeAttribute('aria-current');
+    if (v !== 'respirar') stopBreath();
+    if (v === 'ajuda') renderContacts();
+    if (v === 'plano') setMode(planMode);
+    window.scrollTo(0,0);
+  }
+  function go(v){ if (location.hash === '#' + v) show(); else location.hash = v; }
+  window.addEventListener('hashchange', show);
+  document.addEventListener('click', e => { const g = e.target.closest('[data-go]'); if (g) go(g.dataset.go); });
+  $('#sos').onclick = () => go('ajuda');
+  $('#back').onclick = () => go('inicio');
+
+  /* ---------- escalas 0–10 ---------- */
+  function scale(el, value, onPick){
+    el.innerHTML = '';
+    for (let i=0;i<=10;i++){
+      const b = document.createElement('button');
+      b.type='button'; b.textContent=i; b.setAttribute('aria-pressed', value===i);
+      b.onclick = () => { el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false')); b.setAttribute('aria-pressed','true'); onPick(i); };
+      el.appendChild(b);
+    }
+  }
+  const levelWord = v => v<=1 ? 'tranquilo' : v<=3 ? 'um pouco pesado' : v<=5 ? 'pesado' : v<=7 ? 'difícil' : 'muito difícil';
+  function showLevel(v){
+    const el = $('#home-level'); el.innerHTML = '';
+    const b = document.createElement('b'); b.textContent = v;
+    el.append(b, document.createTextNode(levelWord(v)));
+  }
+  function ago(at){
+    const min = Math.round((Date.now() - at)/60000);
+    if (min < 1) return 'agora há pouco';
+    if (min < 60) return 'há ' + min + ' min';
+    const d = new Date(at), n = new Date();
+    const hm = d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+    if (d.toDateString() === n.toDateString()) return 'hoje às ' + hm;
+    const y = new Date(n); y.setDate(n.getDate()-1);
+    if (d.toDateString() === y.toDateString()) return 'ontem às ' + hm;
+    return null;
+  }
+  const h = new Date().getHours();
+  $('#greet').textContent = h < 5 ? 'Boa noite.' : h < 12 ? 'Bom dia.' : h < 18 ? 'Boa tarde.' : 'Boa noite.';
+
+  scale($('#scale-home'), store.rating ? store.rating.v : null, v => {
+    store.rating = {v, at: Date.now()}; save();
+    showLevel(v);
+    $('#home-last').hidden = true;
+    $('#home-urgent').hidden = v < 8;
+    $('#home-hint').textContent = v >= 8
+      ? 'Está muito difícil. Você não precisa passar por isso sozinho.'
+      : 'Anotado. Agora escolha uma coisa só aqui embaixo.';
+  });
+  if (store.rating){
+    const a = ago(store.rating.at);
+    if (a){
+      $('#home-last').textContent = 'Da última vez você marcou ' + store.rating.v + ', ' + a + '.';
+      $('#home-last').hidden = false;
+      $('#home-hint').textContent = 'Toque num número para anotar como está agora.';
+      if (store.rating.v >= 8 && Date.now() - store.rating.at < 3600000) $('#home-urgent').hidden = false;
+    }
+  }
+
+  /* ---------- vozes: caminho em 3 passos ---------- */
+  let vs = 1;
+  function vstep(n){
+    vs = Math.max(vs, n);
+    document.querySelectorAll('#vsteps li').forEach((li,i)=>{
+      li.classList.toggle('done', i+1 < vs);
+      li.classList.toggle('cur', i+1 === vs);
+      if (i+1 === vs) li.setAttribute('aria-current','step'); else li.removeAttribute('aria-current');
+    });
+  }
+  let before = null, after = null;
+  scale($('#scale-before'), null, v => { before = v; vstep(2); compare(); });
+  scale($('#scale-after'), null, v => { after = v; vstep(4); compare(); });
+  function compare(){
+    const r = $('#v-result');
+    if (before === null || after === null){ r.hidden = true; return; }
+    r.hidden = false;
+    $('#v-delta').textContent = before + ' → ' + after;
+    let msg;
+    if (after < before) msg = 'Baixou de ' + before + ' para ' + after + '. O que você fez funcionou um pouco. Pode repetir quando precisar.';
+    else if (after === before) msg = 'Continua em ' + after + '. Tudo bem. Tente respirar, ou fale com alguém pelo botão "Ajuda agora".';
+    else msg = 'Subiu para ' + after + '. Você não precisa enfrentar isso sozinho: toque em "Ajuda agora".';
+    $('#v-msg').textContent = msg;
+  }
+  const tabs = [...document.querySelectorAll('#vtabs [role=tab]')];
+  function selTab(t, focus){
+    tabs.forEach(x => {
+      const on = x === t;
+      x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1;
+      $('#' + x.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) t.focus();
+  }
+  tabs.forEach((t,i) => {
+    t.onclick = () => { selTab(t); vstep(3); };
+    t.onkeydown = e => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+        e.preventDefault();
+        selTab(tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length], true);
+      }
+    };
+  });
+
+  /* ---------- respiração ---------- */
+  const phases = [{say:'Inspire', s:4, scale:1}, {say:'Segure', s:2, scale:1}, {say:'Solte devagar', s:6, scale:.6}];
+  let bt = null, bi = 0, left = 0, cycles = 0;
+  function lightPhase(i){ [...$('#phases').children].forEach((s,k)=>s.classList.toggle('on', k===i)); }
+  function tick(){
+    if (left <= 0){
+      const p = phases[bi];
+      $('#orb').style.transitionDuration = p.s + 's';
+      $('#orb').style.transform = 'scale(' + p.scale + ')';
+      $('#orb-say').textContent = p.say;
+      lightPhase(bi);
+      left = p.s;
+    }
+    $('#orb-num').textContent = left;
+    left--;
+    if (left <= 0){
+      bi = (bi + 1) % phases.length;
+      if (bi === 0){ cycles++; $('#breath-count').textContent = cycles + (cycles===1?' ciclo completo':' ciclos completos') + '. Seis ciclos levam pouco mais de um minuto.'; }
+    }
+  }
+  function startBreath(){ bi=0; left=0; tick(); bt = setInterval(tick, 1000); $('#breath-toggle').textContent='Parar'; }
+  function stopBreath(){
+    if (!bt) return; clearInterval(bt); bt=null;
+    $('#orb').style.transitionDuration='1s'; $('#orb').style.transform='scale(.6)';
+    $('#orb-say').textContent='Pausado'; $('#orb-num').textContent=''; $('#breath-toggle').textContent='Começar';
+    lightPhase(-1);
+  }
+  $('#breath-toggle').onclick = () => bt ? stopBreath() : startBreath();
+
+  const ground = [
+    ['5','coisas que você consegue ver. Diga o nome de cada uma em voz alta.'],
+    ['4','coisas que você consegue tocar. Sinta a textura de cada uma.'],
+    ['3','sons que você consegue ouvir agora, perto ou longe.'],
+    ['2','cheiros que você consegue sentir, ou dois cheiros de que você gosta.'],
+    ['1','coisa boa que você pode dizer sobre si mesmo agora.']
+  ];
+  let gi = 0;
+  $('#g-dots').innerHTML = ground.map(()=>'<i></i>').join('');
+  function renderGround(){
+    const g = $('#g-step'); g.innerHTML='';
+    const big = document.createElement('big'); big.textContent = ground[gi][0];
+    g.append(big, document.createTextNode(ground[gi][1]));
+    [...$('#g-dots').children].forEach((d,i)=>d.classList.toggle('on', i===gi));
+    $('#g-prev').disabled = gi===0;
+    $('#g-next').textContent = gi===ground.length-1 ? 'Recomeçar' : 'Próximo';
+  }
+  $('#g-next').onclick = () => { gi = gi===ground.length-1 ? 0 : gi+1; renderGround(); };
+  $('#g-prev').onclick = () => { if (gi>0){ gi--; renderGround(); } };
+  renderGround();
+
+  /* ---------- jogo das palavras (inspirado no Temstem) ---------- */
+  const words = ['mar','casa','ponte','janela','laranja','caminho','nuvem','jardim','farol','abraço','manhã','rio','sol','estrela','bicicleta','árvore','varanda','chuva','pão','violão','praia','livro','gato','lua','folha','barco','montanha','café','vento','semente'];
+  let target = '', pos = 0, done = 0, lastWord = '', wordTimer = null;
+  const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+  function newWord(){
+    clearTimeout(wordTimer);
+    do { target = words[Math.floor(Math.random()*words.length)]; } while (target === lastWord);
+    lastWord = target; pos = 0;
+    $('#w-word').textContent = target;
+    const slots = $('#w-slots'); slots.innerHTML='';
+    [...target].forEach(()=>{ const d=document.createElement('div'); d.className='slot'; slots.appendChild(d); });
+    const letters = [...target];
+    for (let i=letters.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [letters[i],letters[j]]=[letters[j],letters[i]]; }
+    const box = $('#w-letters'); box.innerHTML='';
+    letters.forEach(c=>{
+      const b=document.createElement('button'); b.type='button'; b.className='letter'; b.textContent=c;
+      b.setAttribute('aria-label','Letra ' + c);
+      b.onclick=()=>pick(b,c); box.appendChild(b);
+    });
+  }
+  function pick(b,c){
+    if (pos >= target.length) return;
+    if (norm(c) === norm(target[pos])){
+      b.classList.add('used'); b.disabled = true;
+      const s = $('#w-slots').children[pos]; s.textContent = target[pos]; s.classList.add('filled');
+      pos++;
+      if (pos === target.length){
+        done++; $('#w-count').textContent = done + (done===1?' palavra':' palavras');
+        $('#w-word').textContent = 'Diga de novo: ' + target;
+        vstep(3);
+        wordTimer = setTimeout(newWord, 1400);
+      }
+    } else {
+      b.classList.remove('nope'); void b.offsetWidth; b.classList.add('nope');
+    }
+  }
+  $('#w-skip').onclick = newWord;
+  newWord();
+
+  /* ---------- frases para as vozes ---------- */
+  const basePhrases = [
+    'Eu ouço vocês, mas quem decide o que eu faço sou eu.',
+    'Vocês são só sons. Não podem me obrigar a nada.',
+    'Já passei por isso antes e passou. Vai passar de novo.',
+    'Eu não preciso acreditar em tudo o que vocês dizem.',
+    'Agora eu vou prestar atenção em outra coisa.',
+    'Eu mereço cuidado, não castigo.'
+  ];
+  let pi = -1;
+  function allPhrases(){ return basePhrases.concat(store.phrases.map(p=>p.t)); }
+  function nextPhrase(){
+    const a = allPhrases(); let n;
+    do { n = Math.floor(Math.random()*a.length); } while (a.length > 1 && n === pi);
+    pi = n; $('#ph-text').textContent = a[n];
+  }
+  $('#ph-next').onclick = () => { nextPhrase(); vstep(3); };
+  nextPhrase();
+
+  /* ---------- listas editáveis ---------- */
+  const emptyText = {
+    reasons:'Ainda vazio. Pode ser algo bem pequeno, como um cheiro ou uma pessoa.',
+    messages:'Ainda vazio. Pense em algo bom que alguém já te disse.',
+    songs:'Ainda vazio. Uma música, um filme, um lugar.',
+    phrases:'Nenhuma frase sua ainda.'
+  };
+  const lists = {};
+  function renderList(key, el){
+    lists[key] = el;
+    el.innerHTML='';
+    if (!store[key].length){
+      const li=document.createElement('li'); li.className='empty'; li.textContent=emptyText[key]; el.appendChild(li); return;
+    }
+    store[key].forEach((it, i)=>{
+      const li=document.createElement('li');
+      const t=document.createElement('span'); t.className='t'; t.textContent=it.t;
+      if (it.ex){ const tag=document.createElement('span'); tag.className='tag'; tag.textContent='exemplo'; t.appendChild(tag); }
+      const x=document.createElement('button'); x.className='x'; x.type='button'; x.textContent='×'; x.setAttribute('aria-label','Remover: ' + it.t);
+      x.onclick=()=>{
+        const [gone] = store[key].splice(i,1); save(); renderList(key, el); if (key!=='phrases') remind();
+        toast('Removido.', ()=>{ store[key].splice(Math.min(i, store[key].length), 0, gone); save(); renderList(key, el); if (key!=='phrases') remind(); });
+      };
+      li.append(t,x); el.appendChild(li);
+    });
+  }
+  function addTo(key, input, el){
+    const v = input.value.trim(); if (!v) return;
+    store[key] = store[key].filter(x=>!x.ex);
+    store[key].push({t:v}); input.value=''; save(); renderList(key, el);
+    if (key !== 'phrases') remind();
+    toast('Guardado.');
+  }
+  ['reasons','messages','songs'].forEach(k=>{
+    const el=$('#l-'+k), inp=$('#n-'+k);
+    renderList(k, el);
+    document.querySelector('[data-add="'+k+'"]').onclick=()=>addTo(k, inp, el);
+    inp.addEventListener('keydown', e=>{ if (e.key==='Enter') addTo(k, inp, el); });
+  });
+  renderList('phrases', $('#ph-list'));
+  $('#ph-add').onclick=()=>addTo('phrases', $('#ph-new'), $('#ph-list'));
+  $('#ph-new').addEventListener('keydown', e=>{ if (e.key==='Enter') addTo('phrases', $('#ph-new'), $('#ph-list')); });
+
+  /* ---------- fotos (IndexedDB, só neste aparelho) ---------- */
+  let db = null, photos = [];
+  function openDB(){
+    return new Promise(res=>{
+      try{
+        const r = indexedDB.open('porto-seguro', 1);
+        r.onupgradeneeded = () => r.result.createObjectStore('photos', {keyPath:'id', autoIncrement:true});
+        r.onsuccess = () => res(r.result);
+        r.onerror = () => res(null);
+      } catch(e){ res(null); }
+    });
+  }
+  function loadPhotos(){
+    return new Promise(res=>{
+      if (!db) return res();
+      try{
+        const q = db.transaction('photos').objectStore('photos').getAll();
+        q.onsuccess = () => { photos = q.result || []; res(); };
+        q.onerror = () => res();
+      } catch(e){ res(); }
+    });
+  }
+  function putPhoto(data){
+    return new Promise(res=>{
+      if (!db){ photos.push({id:Date.now()+Math.random(), data}); return res(); }
+      try{
+        const tx = db.transaction('photos','readwrite');
+        const q = tx.objectStore('photos').add({data});
+        q.onsuccess = () => { photos.push({id:q.result, data}); res(); };
+        q.onerror = () => res();
+      } catch(e){ photos.push({id:Date.now(), data}); res(); }
+    });
+  }
+  function delPhoto(id){
+    photos = photos.filter(p=>p.id!==id);
+    try{ if (db) db.transaction('photos','readwrite').objectStore('photos').delete(id); } catch(e){}
+  }
+  function shrink(file){
+    return new Promise(res=>{
+      const img = new Image(), url = URL.createObjectURL(file);
+      img.onload = () => {
+        const m = 1000, k = Math.min(1, m/Math.max(img.width, img.height));
+        const c = document.createElement('canvas'); c.width = Math.round(img.width*k); c.height = Math.round(img.height*k);
+        c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+        URL.revokeObjectURL(url); res(c.toDataURL('image/jpeg', .82));
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); res(null); };
+      img.src = url;
+    });
+  }
+  function renderPhotos(){
+    const g = $('#photos'); g.innerHTML='';
+    photos.forEach((p,i)=>{
+      const b=document.createElement('button'); b.className='photo'; b.type='button'; b.setAttribute('aria-label','Ver foto ' + (i+1));
+      const im=document.createElement('img'); im.src=p.data; im.alt=''; b.appendChild(im);
+      b.onclick=()=>openViewer(p, b); g.appendChild(b);
+    });
+    const add=document.createElement('button'); add.className='photo addph'; add.type='button'; add.id='ph-add-btn'; add.textContent='+ Adicionar foto';
+    add.onclick=()=>$('#ph-file').click(); g.appendChild(add);
+  }
+  $('#ph-file').onchange = async e => {
+    const files=[...e.target.files]; e.target.value='';
+    for (const f of files){ const d = await shrink(f); if (d) await putPhoto(d); }
+    renderPhotos(); remind(); if (files.length) toast(files.length > 1 ? 'Fotos guardadas.' : 'Foto guardada.');
+  };
+  let viewing = null, opener = null;
+  function openViewer(p, btn){ viewing=p; opener=btn; $('#viewer-img').src=p.data; $('#viewer').classList.add('on'); $('#viewer-close').focus(); }
+  function closeViewer(){
+    if (!$('#viewer').classList.contains('on')) return;
+    $('#viewer').classList.remove('on'); viewing=null;
+    const f = (opener && document.contains(opener)) ? opener : $('#ph-add-btn');
+    if (f) f.focus();
+  }
+  $('#viewer-close').onclick=closeViewer;
+  $('#viewer').onclick=e=>{ if (e.target.id==='viewer') closeViewer(); };
+  $('#viewer-del').onclick=()=>{
+    if (!viewing) return;
+    const p = viewing; delPhoto(p.id); opener = null; closeViewer(); renderPhotos(); remind();
+    toast('Foto removida.', async ()=>{ await putPhoto(p.data); renderPhotos(); remind(); });
+  };
+  document.addEventListener('keydown', e=>{
+    if (!$('#viewer').classList.contains('on')) return;
+    if (e.key==='Escape') closeViewer();
+    if (e.key==='Tab'){
+      const a=$('#viewer-del'), b=$('#viewer-close');
+      if (e.shiftKey && document.activeElement===a){ e.preventDefault(); b.focus(); }
+      else if (!e.shiftKey && document.activeElement===b){ e.preventDefault(); a.focus(); }
+    }
+  });
+
+  /* ---------- "me lembre de algo": um papelzinho da caixa ---------- */
+  function remind(animate){
+    const pool = [];
+    store.reasons.forEach(r=>pool.push({k:'Um motivo seu para viver', t:r.t}));
+    store.messages.forEach(r=>pool.push({k:'Alguém te disse', t:r.t, hand:true}));
+    store.songs.forEach(r=>pool.push({k:'Algo que te acalma', t:r.t}));
+    photos.forEach(p=>pool.push({k:'Lembra disso?', img:p.data}));
+    const box = $('#remind'); box.innerHTML=''; box.classList.remove('hand');
+    const k=document.createElement('p'); k.className='k';
+    if (!pool.length){
+      k.textContent='Sua caixa está vazia';
+      const q=document.createElement('p'); q.className='q'; q.textContent='Comece com uma foto ou um motivo, mesmo pequeno.';
+      box.append(k,q); return;
+    }
+    const it = pool[Math.floor(Math.random()*pool.length)];
+    k.textContent = it.k; box.appendChild(k);
+    if (it.img){ const f=document.createElement('div'); f.className='pic'; const im=document.createElement('img'); im.src=it.img; im.alt='Uma foto sua'; f.appendChild(im); box.appendChild(f); }
+    else { const q=document.createElement('p'); q.className='q'; q.textContent=it.t; box.appendChild(q); if (it.hand) box.classList.add('hand'); }
+    if (animate){ box.classList.remove('flip'); void box.offsetWidth; box.classList.add('flip'); }
+  }
+  $('#remind-btn').onclick = () => remind(true);
+
+  /* ---------- plano de segurança ---------- */
+  const steps = [
+    {k:'sinais', t:'Meus sinais de alerta', h:'O que eu penso, sinto ou faço quando uma crise está chegando.', ph:'Ex.: não consigo dormir, as vozes ficam mais altas, me isolo no quarto'},
+    {k:'sozinho', t:'O que eu consigo fazer sozinho', h:'Coisas que me acalmam sem precisar de ninguém.', ph:'Ex.: tomar banho, respirar com o app, ouvir minha playlist'},
+    {k:'distrair', t:'Pessoas e lugares que me distraem', h:'Onde ir ou com quem estar, sem precisar falar da crise.', ph:'Ex.: a praça perto de casa, a casa da minha tia'},
+    {k:'contatos', t:'Pessoas a quem eu posso pedir ajuda', h:'Quem eu chamo e digo que não estou bem. Aparecem também em "Ajuda agora".'},
+    {k:'profissionais', t:'Profissionais e serviços', h:'Meu psicólogo, psiquiatra, CAPS, telefones de emergência.'},
+    {k:'ambiente', t:'Deixar o ambiente mais seguro', h:'O que eu posso tirar de perto ou pedir para alguém guardar.', ph:'Ex.: pedir para minha irmã guardar os remédios'}
+  ];
+  const DEF_PROF = defaults.plan.profissionais.trim();
+  function filled(s){
+    if (s.k==='contatos') return store.plan.contatos.some(c=>(c.nome||'').trim()||(c.tel||'').trim());
+    return (store.plan[s.k]||'').trim().length > 0;
+  }
+  function hasOwn(){ return steps.some(s => s.k==='profissionais' ? (store.plan.profissionais||'').trim() !== DEF_PROF && filled(s) : filled(s)); }
+  let planMode = hasOwn() ? 'ler' : 'editar', ri = 0;
+  function setMode(m){
+    planMode = m;
+    $('#m-ler').setAttribute('aria-pressed', m==='ler');
+    $('#m-editar').setAttribute('aria-pressed', m==='editar');
+    $('#plan-read').hidden = m!=='ler';
+    $('#plan-edit').hidden = m!=='editar';
+    if (m==='ler'){ ri = 0; renderRead(false); } else renderPlan();
+    progress();
+  }
+  $('#m-ler').onclick = () => setMode('ler');
+  $('#m-editar').onclick = () => setMode('editar');
+  function progress(){
+    const n = steps.filter(filled).length;
+    $('#plan-prog').textContent = n + ' de 6 passos preenchidos';
+    $('#plan-bar').style.width = (n/6*100) + '%';
+  }
+  let saveT=null, savedT=null;
+  function flashSaved(){ const s=$('#plan-saved'); s.textContent='Salvo'; s.classList.add('on'); clearTimeout(savedT); savedT=setTimeout(()=>s.classList.remove('on'), 1800); }
+  function later(){ clearTimeout(saveT); saveT=setTimeout(()=>{ if (save()) flashSaved(); progress(); }, 400); }
+  function telHref(t){ return 'tel:' + String(t).replace(/[^\d+]/g,''); }
+
+  function renderRead(anim){
+    const list = steps.map((s,i)=>({s,i})).filter(o=>filled(o.s));
+    const box = $('#plan-read-card'); box.innerHTML='';
+    if (!list.length){
+      const p=document.createElement('p'); p.className='rtext'; p.textContent='Seu plano ainda está em branco. Preencha com calma, num dia melhor.';
+      const b=document.createElement('button'); b.className='btn'; b.type='button'; b.textContent='Começar a preencher'; b.onclick=()=>setMode('editar');
+      box.append(p,b); $('#r-nav').hidden = true; $('#r-dots').innerHTML=''; return;
+    }
+    $('#r-nav').hidden = false;
+    ri = Math.min(ri, list.length-1);
+    const {s,i} = list[ri];
+    const eb=document.createElement('p'); eb.className='eyebrow'; eb.textContent='Passo ' + (i+1) + ' de 6';
+    const h=document.createElement('h2'); h.textContent=s.t;
+    box.append(eb,h);
+    if (s.k==='contatos'){
+      store.plan.contatos.filter(c=>(c.nome||'').trim()||(c.tel||'').trim()).forEach(c=>{
+        const row = document.createElement(c.tel.trim() ? 'a' : 'div'); row.className='person';
+        if (c.tel.trim()) row.href = telHref(c.tel);
+        const ini=document.createElement('span'); ini.className='ini'; ini.textContent=((c.nome||'?').trim()[0]||'?').toUpperCase();
+        const who=document.createElement('span'); who.className='who';
+        const b=document.createElement('b'); b.textContent=c.nome||'Meu contato';
+        const sp=document.createElement('span'); sp.textContent=c.tel||'Sem telefone';
+        who.append(b,sp); row.append(ini,who);
+        if (c.tel.trim()){ const g=document.createElement('span'); g.className='go'; g.textContent='Ligar'; row.appendChild(g); }
+        box.appendChild(row);
+      });
+    } else {
+      const p=document.createElement('p'); p.className='rtext'; p.textContent=store.plan[s.k]; box.appendChild(p);
+    }
+    $('#r-dots').innerHTML = list.map((_,k)=>'<i' + (k===ri?' class="on"':'') + '></i>').join('');
+    $('#r-prev').disabled = ri===0;
+    $('#r-next').textContent = ri < list.length-1 ? 'Não ajudou? Próximo passo' : 'Ainda difícil? Ajuda agora';
+    $('#r-next').classList.toggle('help', ri === list.length-1);
+    $('#r-next').onclick = () => { if (ri < list.length-1){ ri++; renderRead(true); } else go('ajuda'); };
+    if (anim){ box.classList.remove('swap'); void box.offsetWidth; box.classList.add('swap'); }
+  }
+  $('#r-prev').onclick = () => { if (ri>0){ ri--; renderRead(true); } };
+
+  function renderPlan(){
+    const box=$('#plan'); box.innerHTML='';
+    steps.forEach((s,i)=>{
+      const row=document.createElement('div'); row.className='pstep';
+      const n=document.createElement('div'); n.className='n'; n.textContent=i+1;
+      const body=document.createElement('div'); body.className='body';
+      const lab=document.createElement('label'); lab.textContent=s.t;
+      const help=document.createElement('p'); help.className='small muted'; help.textContent=s.h;
+      body.append(lab, help);
+      if (s.k==='contatos'){
+        store.plan.contatos.forEach((c,ci)=>{
+          const line=document.createElement('div'); line.className='contact';
+          const f=document.createElement('div'); f.className='cfields';
+          const a=document.createElement('input'); a.type='text'; a.id='c-nome-'+ci; a.placeholder='Nome'; a.value=c.nome; a.setAttribute('aria-label','Nome do contato '+(ci+1));
+          const b=document.createElement('input'); b.type='tel'; b.id='c-tel-'+ci; b.placeholder='Telefone'; b.value=c.tel; b.setAttribute('aria-label','Telefone do contato '+(ci+1));
+          const x=document.createElement('button'); x.type='button'; x.className='x'; x.textContent='×'; x.setAttribute('aria-label','Remover contato '+(ci+1));
+          a.oninput=()=>{c.nome=a.value; later();}; b.oninput=()=>{c.tel=b.value; later();};
+          x.onclick=()=>{
+            const [gone] = store.plan.contatos.splice(ci,1);
+            if (!store.plan.contatos.length) store.plan.contatos.push({nome:'',tel:''});
+            save(); renderPlan(); progress();
+            if ((gone.nome||'').trim() || (gone.tel||'').trim()) toast('Contato removido.', ()=>{
+              const cs = store.plan.contatos;
+              if (cs.length===1 && !cs[0].nome && !cs[0].tel) cs.splice(0,1);
+              cs.splice(Math.min(ci, cs.length), 0, gone); save(); renderPlan(); progress();
+            });
+          };
+          f.append(a,b); line.append(f,x); body.appendChild(line);
+        });
+        const more=document.createElement('button'); more.type='button'; more.className='btn soft'; more.textContent='+ Outra pessoa';
+        more.onclick=()=>{ store.plan.contatos.push({nome:'',tel:''}); save(); renderPlan(); const ni=$('#c-nome-'+(store.plan.contatos.length-1)); if (ni) ni.focus(); };
+        body.appendChild(more);
+      } else {
+        const ta=document.createElement('textarea'); ta.id='plan-'+s.k; ta.value=store.plan[s.k]||''; if (s.ph) ta.placeholder=s.ph;
+        lab.htmlFor=ta.id; ta.oninput=()=>{ store.plan[s.k]=ta.value; later(); };
+        body.appendChild(ta);
+      }
+      row.append(n, body); box.appendChild(row);
+    });
+  }
+  $('#plan-copy').onclick = async () => {
+    const lines=['MEU PLANO DE SEGURANÇA',''];
+    steps.forEach((s,i)=>{
+      lines.push((i+1)+'. '+s.t);
+      if (s.k==='contatos') store.plan.contatos.filter(c=>c.nome||c.tel).forEach(c=>lines.push('   '+c.nome+' '+c.tel));
+      else lines.push('   '+(store.plan[s.k]||'').replace(/\n/g,'\n   '));
+      lines.push('');
+    });
+    lines.push('CVV 188 · SAMU 192');
+    const text = lines.join('\n');
+    try { await navigator.clipboard.writeText(text); $('#plan-text').hidden = true; toast('Plano copiado. Cole numa mensagem para quem você confia.'); }
+    catch(e){
+      const t=$('#plan-text'); t.value=text; t.hidden=false; t.focus(); t.select();
+      toast('Não deu para copiar sozinho. O texto está selecionado logo abaixo.');
+    }
+  };
+  function renderContacts(){
+    const box=$('#my-contacts'); box.innerHTML='';
+    const list = store.plan.contatos.filter(c=>(c.tel||'').trim());
+    if (!list.length){
+      const p=document.createElement('p'); p.className='empty small'; p.textContent='Você ainda não colocou ninguém. Adicione uma pessoa de confiança no plano de segurança.';
+      const b=document.createElement('button'); b.type='button'; b.className='btn soft'; b.textContent='Adicionar alguém'; b.style.marginTop='10px';
+      b.onclick=()=>{ planMode='editar'; go('plano'); };
+      box.append(p,b); return;
+    }
+    list.forEach(c=>{
+      const a=document.createElement('a'); a.className='person'; a.href=telHref(c.tel);
+      const ini=document.createElement('span'); ini.className='ini'; ini.textContent=((c.nome||'?').trim()[0]||'?').toUpperCase();
+      const who=document.createElement('span'); who.className='who';
+      const b=document.createElement('b'); b.textContent=c.nome||'Meu contato';
+      const sp=document.createElement('span'); sp.textContent=c.tel;
+      who.append(b,sp);
+      const g=document.createElement('span'); g.className='go'; g.textContent='Ligar';
+      a.append(ini,who,g); box.appendChild(a);
+    });
+  }
+
+  /* ---------- distrair: plástico-bolha ---------- */
+  let popped=0, total=30, left30=30;
+  function countText(){ $('#b-count').textContent = popped + (popped===1 ? ' estourada' : ' estouradas'); }
+  function bubbles(){
+    const g=$('#bubbles'); g.innerHTML=''; left30 = total;
+    $('#b-done').hidden = true; $('#b-reset').className = 'btn soft';
+    for(let i=0;i<total;i++){
+      const b=document.createElement('button'); b.type='button'; b.className='bubble'; b.setAttribute('aria-label','Bolha');
+      b.onclick=()=>{
+        b.classList.add('pop'); b.disabled = true; b.setAttribute('aria-label','Bolha estourada');
+        popped++; left30--; countText();
+        if (navigator.vibrate) try{navigator.vibrate(12);}catch(e){}
+        if (left30 === 0){ $('#b-done').hidden = false; $('#b-reset').className = 'btn'; $('#b-reset').focus(); }
+      };
+      g.appendChild(b);
+    }
+  }
+  $('#b-reset').onclick=bubbles; bubbles(); countText();
+  const ideas=[
+    'Beba um copo de água bem devagar, prestando atenção em cada gole.',
+    'Procure cinco coisas azuis ao seu redor.',
+    'Lave o rosto e as mãos e repare na sensação da água.',
+    'Escreva o nome de dez frutas, de A a Z.',
+    'Ponha uma música e cante junto, mesmo baixinho.',
+    'Mande uma mensagem para alguém: "Pode falar comigo um pouco?"',
+    'Arrume uma gaveta ou uma prateleira pequena.',
+    'Saia para a varanda ou a janela e descreva o céu em voz alta.',
+    'Faça um alongamento lento: braços para cima, conte até dez.',
+    'Abra sua caixa de esperança e olhe uma foto.'
+  ];
+  let ii=-1;
+  function idea(anim){
+    let n; do{ n=Math.floor(Math.random()*ideas.length);}while(n===ii); ii=n;
+    const el=$('#idea'); el.textContent=ideas[n];
+    if (anim){ el.classList.remove('swap'); void el.offsetWidth; el.classList.add('swap'); }
+  }
+  $('#idea-btn').onclick=()=>idea(true); idea(false);
+
+  /* ---------- início ---------- */
+  show();
+  openDB().then(d=>{ db=d; if(!db) $('#photo-note').textContent='Neste navegador as fotos não ficam salvas depois de fechar.'; return loadPhotos(); })
+          .then(()=>{ renderPhotos(); remind(); });
+  renderPhotos(); remind();
+})();
+</script>
+<script>
+/* App instalável: guarda o app no aparelho para abrir mesmo sem internet. */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => {}); });
+}
+</script>
+</body>
+</html>

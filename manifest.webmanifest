@@ -1,0 +1,25 @@
+{
+  "name": "Porto Seguro",
+  "short_name": "Porto Seguro",
+  "description": "Apoio para momentos de crise: respirar, pedir ajuda, caixa de esperança e plano de segurança.",
+  "lang": "pt-BR",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F4EDE1",
+  "theme_color": "#F4EDE1",
+  "categories": ["health", "medical", "lifestyle"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "Ajuda agora", "short_name": "Ajuda", "url": "./#ajuda", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Respirar", "url": "./#respirar", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Meu plano de segurança", "short_name": "Meu plano", "url": "./#plano", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}
