@@ -1,6 +1,6 @@
-/* Porto Seguro: guarda o app no aparelho para abrir mesmo sem internet.
+/* Maré Mansa: guarda o app no aparelho para abrir mesmo sem internet.
    Ao mudar qualquer arquivo do app, aumente a VERSAO para os celulares baixarem a nova. */
-const VERSAO = 'v1';
+const VERSAO = 'v2';
 const CACHE_APP = 'porto-seguro-app-' + VERSAO;
 const CACHE_FONTES = 'porto-seguro-fontes';
 const ARQUIVOS = [
