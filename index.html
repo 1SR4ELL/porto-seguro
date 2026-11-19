@@ -368,6 +368,26 @@ label{font-weight:700;font-size:17px}
 .idea{font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:23px;line-height:1.35;min-height:94px}
 .idea.swap{animation:enter .3s ease-out}
 
+/* fundo que respira: a maré sobe e desce no ritmo do Respirar (4 s sobe, 2 s parada, 6 s desce)
+   e barquinhos de papel cruzam o horizonte bem devagar. Fica atrás de tudo e some na Ajuda. */
+.app{position:relative;z-index:1}
+.mar-fundo{position:fixed;left:0;right:0;bottom:0;height:26vh;min-height:150px;pointer-events:none;z-index:0;overflow:hidden;opacity:.9;transition:opacity 1.2s ease}
+.app[data-view="ajuda"] ~ .mar-fundo{opacity:0}
+.mare{position:absolute;inset:0;animation:mare 12s ease-in-out infinite;transform:translateY(30%)}
+@keyframes mare{0%{transform:translateY(30%)}33%{transform:translateY(8%)}50%{transform:translateY(8%)}100%{transform:translateY(30%)}}
+.vaga{position:absolute;left:0;width:200%;bottom:-60%;background:var(--vc);animation:drift-mar var(--vd) linear infinite}
+.vaga svg{position:absolute;left:0;top:-15px;width:100%;height:16px;fill:var(--vc)}
+.vaga.v1{top:22%;--vc:color-mix(in srgb,var(--lago1) 50%,transparent);--vd:46s}
+.vaga.v2{top:46%;--vc:color-mix(in srgb,var(--lago1) 75%,transparent);--vd:32s;animation-direction:reverse}
+.vaga.v3{top:70%;--vc:color-mix(in srgb,var(--lago2) 90%,transparent);--vd:22s}
+.longe{position:absolute;left:0;animation:velejar var(--t) linear infinite;animation-delay:var(--d)}
+.longe svg{display:block;width:100%;height:auto;animation:boiar 6s ease-in-out infinite}
+.longe .h{fill:var(--hull)} .longe .s{fill:var(--c)}
+.longe.b1{top:calc(46% - 30px);width:42px;--t:95s;--d:-30s;--c:var(--plano)}
+.longe.b2{top:calc(22% - 18px);width:26px;--t:150s;--d:-95s;--c:var(--sea);opacity:.7}
+@keyframes velejar{from{transform:translateX(-70px)}to{transform:translateX(calc(100vw + 70px))}}
+.icon-btn[aria-pressed="true"]{color:var(--sea-ink);background:color-mix(in srgb,var(--sea) 18%,transparent)}
+
 /* esvaziar a mente */
 .n-item .q{display:block;font-size:14px;color:var(--muted)}
 .n-item .x.ok{color:var(--calm-ink);font-size:20px}
@@ -402,6 +422,7 @@ label{font-weight:700;font-size:17px}
   <header class="bar">
     <button class="back" id="back" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
     <div class="brand"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M7.2 13a4.8 4.8 0 0 1 9.6 0z" fill="var(--amber)"/><path d="M2.5 15.5q2.4-2.2 4.8 0t4.7 0t4.7 0t4.8 0" stroke="var(--sea-ink)"/><path d="M5 19.2q1.75-1.6 3.5 0t3.5 0t3.5 0t3.5 0" stroke="var(--sea-ink)" opacity=".55"/></svg><span id="brand">Maré Mansa</span></div>
+    <button class="icon-btn" id="som" aria-pressed="false" aria-label="Ligar som do mar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2.5 9q2.4-2.2 4.8 0t4.7 0t4.7 0t4.8 0"/><path d="M2.5 14q2.4-2.2 4.8 0t4.7 0t4.7 0t4.8 0"/><path d="M5 19q1.75-1.6 3.5 0t3.5 0t3.5 0t3.5 0" opacity=".55"/></svg></button>
     <button class="icon-btn" id="theme" aria-label="Usar tema escuro"></button>
     <button class="sos" id="sos">Ajuda agora</button>
   </header>
@@ -711,6 +732,16 @@ label{font-weight:700;font-size:17px}
   <footer class="foot"><svg class="onda" viewBox="0 0 600 16" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8 Q 25 0 50 8 T 100 8 T 150 8 T 200 8 T 250 8 T 300 8 T 350 8 T 400 8 T 450 8 T 500 8 T 550 8 T 600 8 V16 H0Z"/></svg><p>Protótipo. Não substitui atendimento profissional. O que você escreve fica salvo só neste aparelho.</p></footer>
 </div>
 
+<div class="mar-fundo" aria-hidden="true">
+  <div class="mare">
+    <div class="vaga v1"><svg viewBox="0 0 600 16" preserveAspectRatio="none"><path d="M0 8 Q 37.5 0 75 8 T 150 8 T 225 8 T 300 8 T 375 8 T 450 8 T 525 8 T 600 8 V16 H0Z"/></svg></div>
+    <div class="longe b2"><svg viewBox="0 0 104 84"><path class="h" d="M8 52 L96 52 L80 72 L24 72 Z"/><path class="h" d="M52 10 L52 52 L22 52 Z"/><path class="s" d="M52 10 L52 52 L80 52 Z" opacity=".75"/></svg></div>
+    <div class="vaga v2"><svg viewBox="0 0 600 16" preserveAspectRatio="none"><path d="M0 8 Q 50 0 100 8 T 200 8 T 300 8 T 400 8 T 500 8 T 600 8 V16 H0Z"/></svg></div>
+    <div class="longe b1"><svg viewBox="0 0 104 84"><path class="h" d="M8 52 L96 52 L80 72 L24 72 Z"/><path class="h" d="M52 10 L52 52 L22 52 Z"/><path class="s" d="M52 10 L52 52 L80 52 Z" opacity=".75"/></svg></div>
+    <div class="vaga v3"><svg viewBox="0 0 600 16" preserveAspectRatio="none"><path d="M0 8 Q 25 0 50 8 T 100 8 T 150 8 T 200 8 T 250 8 T 300 8 T 350 8 T 400 8 T 450 8 T 500 8 T 550 8 T 600 8 V16 H0Z"/></svg></div>
+  </div>
+</div>
+
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Foto">
   <div><div class="frame"><img id="viewer-img" alt=""></div><div class="row"><button class="btn soft" id="viewer-del">Remover foto</button><button class="btn" id="viewer-close">Fechar</button></div></div>
 </div>
@@ -783,6 +814,61 @@ label{font-weight:700;font-size:17px}
   };
   try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', paintThemeBtn); } catch(e){}
   paintThemeBtn();
+
+  /* ---------- som do mar: ruído "marrom" que sobe e desce como ondas, feito no próprio aparelho ----------
+     Nada é baixado. Começa desligado, entra e sai devagar, pausa na Ajuda e quando o app vai para o fundo. */
+  let mar = null, marOn = false;
+  function makeSea(){
+    const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return null;
+    const C = new AC(), len = C.sampleRate * 6;
+    const noise = (brown) => {
+      const b = C.createBuffer(2, len, C.sampleRate);
+      for (let ch = 0; ch < 2; ch++){
+        const d = b.getChannelData(ch); let last = 0;
+        for (let i = 0; i < len; i++){ const w = Math.random() * 2 - 1; if (brown){ last = (last + .02 * w) / 1.02; d[i] = last * 3.5; } else d[i] = w * .5; }
+        const drift = d[len - 1] - d[0]; for (let i = 0; i < len; i++) d[i] -= drift * i / (len - 1); /* emenda sem clique */
+      }
+      const s = C.createBufferSource(); s.buffer = b; s.loop = true; return s;
+    };
+    const master = C.createGain(); master.gain.value = 0; master.connect(C.destination);
+    /* onda: ciclo de 12 s, o mesmo da respiração */
+    const lfo = C.createOscillator(); lfo.frequency.value = 1/12;
+    /* corpo da onda */
+    const body = noise(true), lp = C.createBiquadFilter(), g1 = C.createGain();
+    lp.type = 'lowpass'; lp.frequency.value = 520; g1.gain.value = .32;
+    const lfoF = C.createGain(); lfoF.gain.value = 320; lfo.connect(lfoF).connect(lp.frequency);
+    const lfoG = C.createGain(); lfoG.gain.value = .22; lfo.connect(lfoG).connect(g1.gain);
+    body.connect(lp).connect(g1).connect(master);
+    /* espuma, bem baixinha */
+    const foam = noise(false), bp = C.createBiquadFilter(), g2 = C.createGain();
+    bp.type = 'bandpass'; bp.frequency.value = 2600; bp.Q.value = .6; g2.gain.value = .025;
+    const lfoS = C.createGain(); lfoS.gain.value = .022; lfo.connect(lfoS).connect(g2.gain);
+    foam.connect(bp).connect(g2).connect(master);
+    body.start(); foam.start(); lfo.start();
+    return {C, master};
+  }
+  function fadeSea(to, s){
+    if (!mar) return;
+    const g = mar.master.gain, t = mar.C.currentTime;
+    g.cancelScheduledValues(t); g.setValueAtTime(g.value, t); g.linearRampToValueAtTime(to, t + s);
+  }
+  function setSom(on){
+    marOn = on;
+    $('#som').setAttribute('aria-pressed', on);
+    $('#som').setAttribute('aria-label', on ? 'Desligar som do mar' : 'Ligar som do mar');
+    if (on){
+      if (!mar) mar = makeSea();
+      if (!mar){ marOn = false; $('#som').setAttribute('aria-pressed', false); toast('Este navegador não toca o som do mar.'); return; }
+      mar.C.resume(); fadeSea(.55, 2.5);
+    } else if (mar){
+      fadeSea(0, 1.2); const C = mar.C; setTimeout(() => { if (!marOn) C.suspend(); }, 1300);
+    }
+  }
+  $('#som').onclick = () => setSom(!marOn);
+  document.addEventListener('visibilitychange', () => {
+    if (!mar || !marOn) return;
+    if (document.hidden) mar.C.suspend(); else mar.C.resume();
+  });
 
   /* ---------- rotas ---------- */
   const titles = {inicio:'Maré Mansa', ajuda:'Ajuda agora', respirar:'Respirar', vozes:'Vozes', caixa:'Caixa de esperança', plano:'Plano de segurança', distrair:'Distrair', noite:'Esvaziar a mente'};
@@ -938,6 +1024,7 @@ label{font-weight:700;font-size:17px}
     $('#brand').textContent = titles[v];
     if (v === 'ajuda') $('#sos').setAttribute('aria-current','page'); else $('#sos').removeAttribute('aria-current');
     if (v !== 'respirar') stopBreath();
+    if (v === 'ajuda' && marOn) setSom(false);
     if (v === 'ajuda') renderContacts();
     if (v === 'plano') setMode(planMode);
     if (v === 'noite') openNoite();
