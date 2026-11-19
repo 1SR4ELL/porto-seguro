@@ -31,6 +31,7 @@
   --calm:#7E9C86; --on-calm:#10241B; --calm-ink:#4C7360;
   --sea:#6F8FA8; --sea-ink:#46647C;
   --vozes:#8E7FA6; --vozes-ink:#665884; --caixa:#D4A256; --caixa-ink:#8A6420; --plano:#C98B7B; --plano-ink:#9A5446;
+  --noite:#7C86B8; --noite-ink:#535C90;
   --help:#B4573F; --on-help:#FFF5EE; --help-ink:#A44B34;
   --hull:#FFFBF6; --lamp:transparent; --moon:none;
   --photo:#FFFDF8; --shadow:rgba(75,69,96,.16); --shadow-2:rgba(75,69,96,.08);
@@ -49,6 +50,7 @@
     --calm:#8FC2A8; --on-calm:#0D2419; --calm-ink:#8FC2A8;
     --sea:#8FB0CC; --sea-ink:#8FB0CC;
     --vozes:#B3A6CC; --vozes-ink:#C3B8DA; --caixa:#E6BE74; --caixa-ink:#E6BE74; --plano:#E0A898; --plano-ink:#E8B5A7;
+    --noite:#A9B2E0; --noite-ink:#BCC3EC;
     --help:#FF9A85; --on-help:#2A0F0A; --help-ink:#FF9A85;
     --hull:#E6DFD2; --lamp:#FFD27A; --moon:block;
     --photo:#EDE6DA; --shadow:rgba(0,0,0,.38); --shadow-2:rgba(0,0,0,.22);
@@ -64,6 +66,7 @@
     --calm:#8FC2A8; --on-calm:#0D2419; --calm-ink:#8FC2A8;
     --sea:#8FB0CC; --sea-ink:#8FB0CC;
     --vozes:#B3A6CC; --vozes-ink:#C3B8DA; --caixa:#E6BE74; --caixa-ink:#E6BE74; --plano:#E0A898; --plano-ink:#E8B5A7;
+    --noite:#A9B2E0; --noite-ink:#BCC3EC;
     --help:#FF9A85; --on-help:#2A0F0A; --help-ink:#FF9A85;
     --hull:#E6DFD2; --lamp:#FFD27A; --moon:block;
     --photo:#EDE6DA; --shadow:rgba(0,0,0,.38); --shadow-2:rgba(0,0,0,.22);
@@ -365,6 +368,14 @@ label{font-weight:700;font-size:17px}
 .idea{font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:23px;line-height:1.35;min-height:94px}
 .idea.swap{animation:enter .3s ease-out}
 
+/* esvaziar a mente */
+.n-item .q{display:block;font-size:14px;color:var(--muted)}
+.n-item .x.ok{color:var(--calm-ink);font-size:20px}
+.n-item .x.ok:hover{background:color-mix(in srgb,var(--calm) 20%,transparent)}
+#n-worry{border-top:0;padding-top:0}
+.n-fecho{display:flex;flex-direction:column;gap:14px}
+.n-bye{text-align:center;font-family:var(--display);font-style:italic;font-size:19px;color:var(--muted)}
+
 .foot{position:relative;overflow-x:clip;margin-inline:-16px;padding:26px 16px calc(24px + env(safe-area-inset-bottom,0px));background:linear-gradient(var(--lago1),var(--lago2));text-align:center}
 .foot .onda{position:absolute;left:0;top:-8px;width:200%;height:16px;fill:var(--lago1);animation:drift-mar 20s linear infinite}
 .foot p{display:inline-block;margin:0;padding:8px 14px;border-radius:14px;font-size:14px;color:var(--ink);background:color-mix(in srgb,var(--paper) 80%,transparent)}
@@ -427,6 +438,7 @@ label{font-weight:700;font-size:17px}
         <button class="leaf" data-tool="vozes" data-full="Estou ouvindo vozes" data-open="Abrir" style="--c:var(--vozes);--ci:var(--vozes-ink)"><span class="leaf-float"><span class="leaf-in"><svg class="boat" viewBox="0 0 104 84" aria-hidden="true"><circle class="lamp" cx="52" cy="6" r="4"/><path class="h" d="M8 52 L96 52 L80 72 L24 72 Z"/><path class="s" d="M8 52 L24 72 L52 60 Z" opacity=".4"/><path class="h" d="M52 10 L52 52 L22 52 Z"/><path class="s" d="M52 10 L52 52 L80 52 Z" opacity=".75"/><path class="m" d="M52 10 L52 52"/></svg><b class="lt">Vozes</b><span class="ld sr">Jogo de palavras e frases para responder</span></span></span></button>
         <button class="leaf" data-tool="caixa" data-full="Minha caixa de esperança" data-open="Abrir a caixa" style="--c:var(--caixa);--ci:var(--caixa-ink)"><span class="leaf-float"><span class="leaf-in"><svg class="boat" viewBox="0 0 104 84" aria-hidden="true"><circle class="lamp" cx="52" cy="6" r="4"/><path class="h" d="M8 52 L96 52 L80 72 L24 72 Z"/><path class="s" d="M8 52 L24 72 L52 60 Z" opacity=".4"/><path class="h" d="M52 10 L52 52 L22 52 Z"/><path class="s" d="M52 10 L52 52 L80 52 Z" opacity=".75"/><path class="m" d="M52 10 L52 52"/></svg><b class="lt">Caixa</b><span class="ld sr">Fotos, motivos para viver e recados</span></span></span></button>
         <button class="leaf" data-tool="plano" data-full="Meu plano de segurança" data-open="Ler meu plano" style="--c:var(--plano);--ci:var(--plano-ink)"><span class="leaf-float"><span class="leaf-in"><svg class="boat" viewBox="0 0 104 84" aria-hidden="true"><circle class="lamp" cx="52" cy="6" r="4"/><path class="h" d="M8 52 L96 52 L80 72 L24 72 Z"/><path class="s" d="M8 52 L24 72 L52 60 Z" opacity=".4"/><path class="h" d="M52 10 L52 52 L22 52 Z"/><path class="s" d="M52 10 L52 52 L80 52 Z" opacity=".75"/><path class="m" d="M52 10 L52 52"/></svg><b class="lt">Plano</b><span class="ld sr">Os passos que eu combinei comigo</span></span></span></button>
+        <button class="leaf" data-tool="noite" data-full="Esvaziar a mente" data-open="Começar" style="--c:var(--noite);--ci:var(--noite-ink)"><span class="leaf-float"><span class="leaf-in"><svg class="boat" viewBox="0 0 104 84" aria-hidden="true"><circle class="lamp" cx="52" cy="6" r="4"/><path class="h" d="M8 52 L96 52 L80 72 L24 72 Z"/><path class="s" d="M8 52 L24 72 L52 60 Z" opacity=".4"/><path class="h" d="M52 10 L52 52 L22 52 Z"/><path class="s" d="M52 10 L52 52 L80 52 Z" opacity=".75"/><path class="m" d="M52 10 L52 52"/></svg><b class="lt">Noite</b><span class="ld sr">Antes de dormir: deixar o amanhã anotado para a cabeça descansar</span></span></span></button>
       </div>
       <div class="deck-nav">
         <button class="icon-btn" id="deck-prev" aria-label="Barquinho anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
@@ -592,6 +604,12 @@ label{font-weight:700;font-size:17px}
       </div>
 
       <div class="card">
+        <h2>Coisas boas dos meus dias</h2>
+        <ul class="list" id="l-goods"></ul>
+        <div class="add"><input type="text" id="n-goods" placeholder="Algo bom que aconteceu, mesmo pequeno" aria-label="Nova coisa boa"><button class="btn soft" data-add="goods">Salvar</button></div>
+      </div>
+
+      <div class="card">
         <h2>Músicas e coisas que me acalmam</h2>
         <ul class="list" id="l-songs"></ul>
         <div class="add"><input type="text" id="n-songs" placeholder="Nome da música, filme, lugar…" aria-label="Novo item"><button class="btn soft" data-add="songs">Salvar</button></div>
@@ -644,6 +662,50 @@ label{font-weight:700;font-size:17px}
         <button class="btn" id="idea-btn">Outra ideia</button>
       </div>
     </section>
+
+    <!-- ESVAZIAR A MENTE (antes de dormir) -->
+    <section class="view" id="v-noite" aria-labelledby="h-noite">
+      <header class="intro">
+        <h1 id="h-noite">Deixe o amanhã no papel.</h1>
+        <p class="muted">Anotar o que ficou para amanhã ajuda a cabeça a soltar. Leva uns 5 minutos. Não precisa ser tudo.</p>
+      </header>
+
+      <div class="card">
+        <p class="kicker" id="n-k">1 · Amanhã eu preciso…</p>
+        <p class="note-last" id="n-bom" hidden></p>
+        <ul class="list" id="n-list"></ul>
+        <div class="sec" id="n-form">
+          <input type="text" id="n-t" placeholder="Ex.: treinar 30 minutos" aria-label="O que você precisa fazer">
+          <div class="add"><input type="text" id="n-q" placeholder="Quando ou onde? (opcional)" aria-label="Quando ou onde"><button class="btn soft" id="n-add">Anotar</button></div>
+        </div>
+        <p class="small muted" id="n-hint"></p>
+      </div>
+
+      <div class="card">
+        <details id="n-worry">
+          <summary>2 · Alguma preocupação rondando?</summary>
+          <div class="sec">
+            <p class="small muted">Opcional. Escreva do jeito que vier e pense num passo bem pequeno.</p>
+            <textarea id="n-w" placeholder="O que está me preocupando…" aria-label="Preocupação"></textarea>
+            <label for="n-p">Um próximo passo pequeno</label>
+            <input type="text" id="n-p" placeholder="Ex.: mandar mensagem perguntando o horário">
+            <button class="btn soft" id="n-w-ok">Levar o passo para a lista</button>
+            <p class="small muted">A preocupação não fica salva. Só o passo vai para a lista.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card n-fecho">
+        <p class="kicker">3 · Para fechar o dia</p>
+        <div class="bilhete"><p class="phrase" id="n-frase"></p></div>
+        <label for="n-b">Uma coisa boa de hoje, mesmo pequena <span class="muted small">(opcional)</span></label>
+        <div class="add"><input type="text" id="n-b" placeholder="Ex.: o café da tarde"><button class="btn soft" id="n-b-ok">Guardar</button></div>
+        <div class="row"><button class="btn calm" data-go="respirar">Respirar 1 minuto</button><button class="btn" id="n-fim">Terminar por hoje</button></div>
+        <p class="n-bye" id="n-bye" hidden aria-live="polite">Boa noite. A lista fica aqui te esperando. Pode fechar o app.</p>
+      </div>
+
+      <p class="small muted">Se a insônia é frequente, vale conversar com um profissional. A terapia cognitivo-comportamental para insônia (TCC-I) é o tratamento mais estudado.</p>
+    </section>
   </main>
 
   <footer class="foot"><svg class="onda" viewBox="0 0 600 16" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8 Q 25 0 50 8 T 100 8 T 150 8 T 200 8 T 250 8 T 300 8 T 350 8 T 400 8 T 450 8 T 500 8 T 550 8 T 600 8 V16 H0Z"/></svg><p>Protótipo. Não substitui atendimento profissional. O que você escreve fica salvo só neste aparelho.</p></footer>
@@ -666,19 +728,22 @@ label{font-weight:700;font-size:17px}
     reasons: [{t:'Ver minha sobrinha crescer', ex:true},{t:'O cheiro de café de manhã', ex:true}],
     messages: [{t:'"Você é a pessoa mais forte que eu conheço." (Mãe)', ex:true}],
     songs: [{t:'Uma música que eu sei cantar inteira', ex:true}],
+    goods: [],
     phrases: [],
     plan: {
       sinais:'', sozinho:'', distrair:'',
       contatos:[{nome:'', tel:''}],
       profissionais:'CVV: 188\nSAMU: 192\nCAPS da minha cidade:',
       ambiente:''
-    }
+    },
+    noite: {itens: [], bom: null}
   };
   let store;
   try { store = Object.assign({}, JSON.parse(JSON.stringify(defaults)), JSON.parse(localStorage.getItem(KEY) || '{}')); }
   catch(e){ store = JSON.parse(JSON.stringify(defaults)); }
   store.plan = Object.assign({}, defaults.plan, store.plan || {});
   if (!Array.isArray(store.plan.contatos) || !store.plan.contatos.length) store.plan.contatos = [{nome:'', tel:''}];
+  if (!store.noite || !Array.isArray(store.noite.itens)) store.noite = {itens: [], bom: null};
   let canSave = true;
   function save(){
     try { localStorage.setItem(KEY, JSON.stringify(store)); return true; }
@@ -720,7 +785,7 @@ label{font-weight:700;font-size:17px}
   paintThemeBtn();
 
   /* ---------- rotas ---------- */
-  const titles = {inicio:'Maré Mansa', ajuda:'Ajuda agora', respirar:'Respirar', vozes:'Vozes', caixa:'Caixa de esperança', plano:'Plano de segurança', distrair:'Distrair'};
+  const titles = {inicio:'Maré Mansa', ajuda:'Ajuda agora', respirar:'Respirar', vozes:'Vozes', caixa:'Caixa de esperança', plano:'Plano de segurança', distrair:'Distrair', noite:'Esvaziar a mente'};
   const calm = matchMedia('(prefers-reduced-motion: reduce)');
 
   /* ---------- carrossel de ferramentas ---------- */
@@ -875,6 +940,7 @@ label{font-weight:700;font-size:17px}
     if (v !== 'respirar') stopBreath();
     if (v === 'ajuda') renderContacts();
     if (v === 'plano') setMode(planMode);
+    if (v === 'noite') openNoite();
     window.scrollTo(0,0);
   }
   function go(v){ if (location.hash === '#' + v) show(); else location.hash = v; }
@@ -1091,6 +1157,7 @@ label{font-weight:700;font-size:17px}
     reasons:'Ainda vazio. Pode ser algo bem pequeno, como um cheiro ou uma pessoa.',
     messages:'Ainda vazio. Pense em algo bom que alguém já te disse.',
     songs:'Ainda vazio. Uma música, um filme, um lugar.',
+    goods:'Ainda vazio. À noite, em "Esvaziar a mente", o que você guardar de bom aparece aqui.',
     phrases:'Nenhuma frase sua ainda.'
   };
   const lists = {};
@@ -1119,7 +1186,8 @@ label{font-weight:700;font-size:17px}
     if (key !== 'phrases') remind();
     toast('Guardado.');
   }
-  ['reasons','messages','songs'].forEach(k=>{
+  if (!Array.isArray(store.goods)) store.goods = [];
+  ['reasons','messages','goods','songs'].forEach(k=>{
     const el=$('#l-'+k), inp=$('#n-'+k);
     renderList(k, el);
     document.querySelector('[data-add="'+k+'"]').onclick=()=>addTo(k, inp, el);
@@ -1225,6 +1293,7 @@ label{font-weight:700;font-size:17px}
     store.reasons.forEach(r=>pool.push({k:'Um motivo seu para viver', t:r.t}));
     store.messages.forEach(r=>pool.push({k:'Alguém te disse', t:r.t, hand:true}));
     store.songs.forEach(r=>pool.push({k:'Algo que te acalma', t:r.t}));
+    store.goods.forEach(r=>pool.push({k:'Um dia teve isso de bom', t:r.t}));
     photos.forEach(p=>pool.push({k:'Lembra disso?', img:p.data}));
     const box = $('#remind'); box.innerHTML=''; box.classList.remove('hand');
     const k=document.createElement('p'); k.className='k';
@@ -1430,6 +1499,86 @@ label{font-weight:700;font-size:17px}
     if (anim){ el.classList.remove('swap'); void el.offsetWidth; el.classList.add('swap'); }
   }
   $('#idea-btn').onclick=()=>idea(true); idea(false);
+
+  /* ---------- esvaziar a mente: lista de amanhã ----------
+     Baseado em Scullin et al. 2018 (lista específica do dia seguinte) e Masicampo & Baumeister 2011.
+     Proteções: no máximo 5 itens, sempre olhando para frente, de manhã dá para soltar sem cobrança,
+     a preocupação escrita não é salva. */
+  const N_MAX = 5;
+  const nightPhrases = [
+    'O que é de amanhã já está anotado. Agora pode descansar.',
+    'Você não precisa resolver tudo hoje à noite.',
+    'Escrever é colocar o peso no papel, não nas costas.',
+    'Hoje foi o suficiente.',
+    'Seu barquinho pode ficar no porto esta noite.',
+    'Um passo pequeno ainda é um passo.',
+    'Descansar também é cuidar das suas metas.',
+    'Nem todo pensamento precisa de resposta agora.',
+    'Tudo bem se hoje não deu. Amanhã é outro mar.',
+    'Você fez o que pôde com o que tinha hoje.'
+  ];
+  const sameDay = (a, b) => new Date(a).toDateString() === new Date(b).toDateString();
+  function renderNoite(){
+    const N = store.noite, now = Date.now(), hr = new Date().getHours();
+    const old = N.itens.some(it => !sameDay(it.at, now));
+    const manha = old && hr >= 5 && hr < 18;
+    const y = new Date(); y.setDate(y.getDate() - 1);
+    const ontem = N.itens.some(it => sameDay(it.at, y));
+    $('#n-k').textContent = manha ? (ontem ? 'Ontem à noite você deixou isso para hoje' : 'Você deixou isso aqui') : '1 · Amanhã eu preciso…';
+    const bom = N.bom && !sameDay(N.bom.at, now) && now - N.bom.at < 40*3600000 ? N.bom : null;
+    $('#n-bom').hidden = !bom;
+    if (bom) $('#n-bom').textContent = 'Ontem teve isso de bom: ' + bom.t;
+    const el = $('#n-list'); el.innerHTML = '';
+    if (!N.itens.length){
+      const li = document.createElement('li'); li.className = 'empty'; li.textContent = 'Nada anotado ainda. Uma ou duas coisas já ajudam.'; el.appendChild(li);
+    }
+    N.itens.forEach((it, i) => {
+      const li = document.createElement('li'); li.className = 'n-item';
+      const t = document.createElement('span'); t.className = 't'; t.textContent = it.t;
+      if (it.q){ const q = document.createElement('span'); q.className = 'q'; q.textContent = it.q; t.appendChild(q); }
+      const ok = document.createElement('button'); ok.type = 'button'; ok.className = 'x ok'; ok.textContent = '✓'; ok.setAttribute('aria-label', 'Feito: ' + it.t);
+      const x = document.createElement('button'); x.type = 'button'; x.className = 'x'; x.textContent = '×'; x.setAttribute('aria-label', 'Soltar: ' + it.t);
+      const drop = msg => {
+        const [gone] = N.itens.splice(i, 1); save(); renderNoite();
+        toast(msg, () => { N.itens.splice(Math.min(i, N.itens.length), 0, gone); save(); renderNoite(); });
+      };
+      ok.onclick = () => drop('Feito. Um a menos.');
+      x.onclick = () => drop('Solto. Tudo bem.');
+      li.append(t, ok, x); el.appendChild(li);
+    });
+    const cheio = N.itens.length >= N_MAX;
+    $('#n-form').hidden = cheio;
+    $('#n-w-ok').disabled = cheio;
+    $('#n-hint').textContent = cheio ? 'Já tem bastante coisa. O resto pode esperar outro dia.'
+      : manha ? 'Faça o que couber. O que não couber, pode soltar (×) ou deixar para depois.'
+      : 'Quanto mais concreto, melhor: o quê, quando, onde.';
+  }
+  function addNoite(t, q){
+    t = (t || '').trim(); if (!t || store.noite.itens.length >= N_MAX) return false;
+    store.noite.itens.push({t, q: (q || '').trim(), at: Date.now()}); save(); renderNoite(); return true;
+  }
+  function openNoite(){
+    $('#n-frase').textContent = nightPhrases[Math.floor(Math.random() * nightPhrases.length)];
+    $('#n-bye').hidden = true;
+    renderNoite();
+  }
+  function anotar(){ if (addNoite($('#n-t').value, $('#n-q').value)){ $('#n-t').value = ''; $('#n-q').value = ''; toast('Anotado.'); if (!$('#n-form').hidden) $('#n-t').focus(); } }
+  $('#n-add').onclick = anotar;
+  ['#n-t','#n-q'].forEach(s => $(s).addEventListener('keydown', e => { if (e.key === 'Enter') anotar(); }));
+  $('#n-w-ok').onclick = () => {
+    const p = $('#n-p').value.trim();
+    if (!p){ $('#n-p').focus(); return; }
+    if (addNoite(p)){ $('#n-w').value = ''; $('#n-p').value = ''; $('#n-worry').open = false; toast('O passo foi para a lista. A preocupação pode ir embora.'); }
+  };
+  function guardarBom(){
+    const v = $('#n-b').value.trim(); if (!v) return;
+    store.noite.bom = {t: v, at: Date.now()};
+    store.goods.push({t: v}); save(); renderList('goods', $('#l-goods')); remind();
+    $('#n-b').value = ''; toast('Guardado na sua caixa de esperança.');
+  }
+  $('#n-b-ok').onclick = guardarBom;
+  $('#n-b').addEventListener('keydown', e => { if (e.key === 'Enter') guardarBom(); });
+  $('#n-fim').onclick = () => { $('#n-bye').hidden = false; $('#n-bye').scrollIntoView({block: 'center', behavior: calm.matches ? 'auto' : 'smooth'}); };
 
   /* ---------- início ---------- */
   show();
